@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="spritesheet.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="dancin10000" x="0" y="0" width="408" height="728" frameX="0" frameY="0" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10001" x="418" y="0" width="400" height="720" frameX="-15" frameY="-8" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10002" x="828" y="0" width="400" height="716" frameX="-23" frameY="-12" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10003" x="828" y="0" width="400" height="716" frameX="-23" frameY="-12" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10004" x="1238" y="0" width="400" height="707" frameX="-35" frameY="-21" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10005" x="1238" y="0" width="400" height="707" frameX="-35" frameY="-21" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10006" x="1648" y="0" width="400" height="713" frameX="-39" frameY="-15" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10007" x="2058" y="0" width="400" height="716" frameX="-42" frameY="-12" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10008" x="2468" y="0" width="400" height="718" frameX="-45" frameY="-10" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10009" x="2468" y="0" width="400" height="718" frameX="-45" frameY="-10" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10010" x="2878" y="0" width="406" height="719" frameX="-46" frameY="-9" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin10011" x="2878" y="0" width="406" height="719" frameX="-46" frameY="-9" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20000" x="3294" y="0" width="406" height="719" frameX="-46" frameY="-9" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20001" x="2468" y="0" width="400" height="718" frameX="-45" frameY="-10" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20002" x="2058" y="0" width="400" height="716" frameX="-42" frameY="-12" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20003" x="2058" y="0" width="400" height="716" frameX="-42" frameY="-12" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20004" x="1648" y="0" width="400" height="713" frameX="-39" frameY="-15" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20005" x="1648" y="0" width="400" height="713" frameX="-39" frameY="-15" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20006" x="1238" y="0" width="400" height="707" frameX="-35" frameY="-21" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20007" x="0" y="738" width="400" height="716" frameX="-23" frameY="-12" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20008" x="418" y="0" width="400" height="720" frameX="-15" frameY="-8" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20009" x="418" y="0" width="400" height="720" frameX="-15" frameY="-8" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20010" x="0" y="0" width="408" height="728" frameX="0" frameY="0" frameWidth="452" frameHeight="728"/>
+	<SubTexture name="dancin20011" x="0" y="0" width="408" height="728" frameX="0" frameY="0" frameWidth="452" frameHeight="728"/>
+</TextureAtlas>

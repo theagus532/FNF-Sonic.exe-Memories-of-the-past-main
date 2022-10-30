@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="DeadTailz.png">
+<SubTexture name="DeadTailz Tails Spike Animated instance 0000" x="0" y="0" width="215" height="736" frameX="0" frameY="-1" frameWidth="216" frameHeight="737" />
+<SubTexture name="DeadTailz Tails Spike Animated instance 0001" x="215" y="0" width="215" height="736" frameX="0" frameY="-1" frameWidth="217" frameHeight="737" />
+<SubTexture name="DeadTailz Tails Spike Animated instance 0002" x="430" y="0" width="215" height="736" frameX="0" frameY="-2" frameWidth="217" frameHeight="738" />
+<SubTexture name="DeadTailz Tails Spike Animated instance 0003" x="645" y="0" width="216" height="736" frameX="0" frameY="-2" frameWidth="217" frameHeight="738" />
+<SubTexture name="DeadTailz Tails Spike Animated instance 0004" x="861" y="0" width="215" height="736" frameX="0" frameY="-2" frameWidth="217" frameHeight="738" />
+</TextureAtlas>

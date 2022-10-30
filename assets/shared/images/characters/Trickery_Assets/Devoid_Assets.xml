@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Devoid_Assets.png">
+<SubTexture name="Devoid Idle Dance0000" x="1440" y="0" width="474" height="616" frameX="-453" frameY="-94" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid Idle Dance0001" x="1440" y="616" width="377" height="613" frameX="-440" frameY="-97" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid Idle Dance0002" x="942" y="701" width="372" height="626" frameX="-447" frameY="-84" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid Idle Dance0003" x="1914" y="0" width="377" height="569" frameX="-443" frameY="-141" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid Idle Dance0004" x="1914" y="569" width="377" height="569" frameX="-443" frameY="-141" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Left0000" x="438" y="1348" width="437" height="550" frameX="-316" frameY="-132" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Left0001" x="0" y="1348" width="438" height="553" frameX="-319" frameY="-129" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Left0002" x="1709" y="1348" width="438" height="539" frameX="-316" frameY="-143" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Left0003" x="875" y="1348" width="413" height="541" frameX="-339" frameY="-141" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Left0004" x="1288" y="1348" width="421" height="541" frameX="-325" frameY="-141" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Down0000" x="2756" y="0" width="530" height="442" frameX="-361" frameY="-257" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Down0001" x="2756" y="442" width="530" height="430" frameX="-354" frameY="-269" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Down0002" x="2004" y="1901" width="534" height="444" frameX="-352" frameY="-255" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Down0003" x="1480" y="1901" width="524" height="459" frameX="-351" frameY="-240" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Down0004" x="953" y="1901" width="527" height="466" frameX="-351" frameY="-233" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Up0000" x="948" y="0" width="492" height="683" frameX="-397" frameY="-27" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Up0001" x="471" y="0" width="477" height="689" frameX="-407" frameY="-21" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Up0002" x="0" y="0" width="471" height="701" frameX="-410" frameY="-9" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Up0003" x="0" y="701" width="471" height="647" frameX="-407" frameY="-63" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Up0004" x="471" y="701" width="471" height="643" frameX="-403" frameY="-67" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Right0000" x="481" y="1901" width="472" height="487" frameX="-536" frameY="-218" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Right0001" x="0" y="1901" width="481" height="489" frameX="-536" frameY="-216" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Right0002" x="2291" y="0" width="465" height="496" frameX="-536" frameY="-209" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Right0003" x="2291" y="496" width="455" height="495" frameX="-536" frameY="-210" frameWidth="1280" frameHeight="720" />
+<SubTexture name="Devoid NOTE Right0004" x="2291" y="991" width="445" height="492" frameX="-536" frameY="-213" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

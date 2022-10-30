@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="fatalsonic.png"><SubTexture name="fatalsonic down0000" x="0" y="0" width="171" height="181" frameX="0" frameY="0" frameWidth="171" frameHeight="181" />
+<SubTexture name="fatalsonic down0001" x="171" y="0" width="171" height="181" frameX="0" frameY="0" frameWidth="171" frameHeight="181" />
+<SubTexture name="fatalsonic idle0000" x="342" y="0" width="131" height="189" frameX="0" frameY="0" frameWidth="131" frameHeight="189" />
+<SubTexture name="fatalsonic idle0001" x="0" y="189" width="131" height="189" frameX="0" frameY="0" frameWidth="131" frameHeight="189" />
+<SubTexture name="fatalsonic idle0002" x="131" y="189" width="131" height="189" frameX="0" frameY="0" frameWidth="131" frameHeight="189" />
+<SubTexture name="fatalsonic idle0003" x="262" y="189" width="131" height="189" frameX="0" frameY="0" frameWidth="131" frameHeight="189" />
+<SubTexture name="fatalsonic left0000" x="0" y="378" width="164" height="204" frameX="0" frameY="0" frameWidth="164" frameHeight="204" />
+<SubTexture name="fatalsonic left0001" x="164" y="378" width="164" height="204" frameX="0" frameY="0" frameWidth="164" frameHeight="204" />
+<SubTexture name="fatalsonic right0000" x="328" y="378" width="149" height="197" frameX="0" frameY="0" frameWidth="149" frameHeight="197" />
+<SubTexture name="fatalsonic right0001" x="0" y="582" width="149" height="197" frameX="0" frameY="0" frameWidth="149" frameHeight="197" />
+<SubTexture name="fatalsonic up0000" x="149" y="582" width="130" height="211" frameX="0" frameY="0" frameWidth="130" frameHeight="211" />
+<SubTexture name="fatalsonic up0001" x="279" y="582" width="130" height="211" frameX="0" frameY="0" frameWidth="130" frameHeight="211" />
+</TextureAtlas>
