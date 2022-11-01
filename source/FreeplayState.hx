@@ -73,7 +73,7 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 		whiteshit = new FlxSprite().makeGraphic(1280, 720, FlxColor.WHITE);
 		whiteshit.alpha = 0;
 
-		bg = new FlxBackdrop(Paths.image('backgroundlool'), 1, 1, true, true);
+		bg = new FlxBackdrop(Paths.image('backgroundlool'), 1, 0, true, false);
 		bg.setGraphicSize(1280, 720);
 		add(bg);
 

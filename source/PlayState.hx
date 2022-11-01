@@ -4049,6 +4049,8 @@ class PlayState extends MusicBeatState
 
 			callOnLuas('onResume', []);
 
+			Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past- " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
+
 			#if desktop
 			if (startTimer.finished)
 			{
