@@ -7,7 +7,7 @@ class CharSongList
       "lord x" => ["cycles"],
       "tails doll" => ["sunshine", "soulless"],
       "fleetway" => ["chaos"],
-      "exe" => ["Faker", "Black Sun", "Godspeed"],
+      "exe" => ["faker", "Black Sun", "Godspeed"],
       "fatalerror" => ["fatality"],
       "chaotix" => ["my-horizon", "our-horizon"],
       "educator" => ["playful"],

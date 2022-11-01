@@ -1771,6 +1771,13 @@ class PlayState extends MusicBeatState
 				camGame.setFilters([curShader]);
 				camHUD.setFilters([curShader]);
 				camOther.setFilters([curShader]);
+
+			case 'fakerStage':
+				gfGroup.scrollFactor.set(1.24, 1);
+
+			case 'EXEStage':
+				gfGroup.scrollFactor.set(1.24, 1);
+
 			case 'hog':
 				gfGroup.visible = false;
 				add(hogRocks);
@@ -1851,6 +1858,17 @@ class PlayState extends MusicBeatState
 				boyfriend.y -= 50;
 				add(thechamber);
 				add(porker);
+			case 'fakerStage':
+				gf.x += 200;
+				gf.y += 100;
+				dad.scrollFactor.set(1.25, 1);
+				boyfriend.scrollFactor.set(1.25, 1);
+				boyfriend.x = 318.95 + 500;
+				boyfriend.y = 494.2 - 150;
+				dad.y -= 54.3;
+				dad.x += 59.85;
+	
+				gf.y -= 150;
 			case 'cycles-hills':
 				dad.x -= 120;
 				dad.y -= 50;
@@ -2873,7 +2891,7 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 
-		Lib.application.window.title = "Sonic.exe' Memories Of The Past- " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
+		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past- " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
 		#if desktop
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter());
@@ -3523,6 +3541,7 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
+		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past- " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
 		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
 		DiscordClient.changePresence(detailsText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength);
@@ -5231,7 +5250,7 @@ class PlayState extends MusicBeatState
 				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
 
-				Lib.application.window.title = "Sonic.exe' Memories Of The Past -" + curSong + " [Game Over] ";
+				Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past -" + curSong + " [Game Over] ";
 				DiscordClient.changePresence("Game Over - " + detailsText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 				#end
 				isDead = true;
@@ -7868,6 +7887,22 @@ class PlayState extends MusicBeatState
 						isCameraOnForcedPos = true;
 				}
 			}
+		if (curStage == 'fakerStage' && SONG.song.toLowerCase()=='Faker')
+		{
+			switch(curStep){
+				case 787, 795, 902, 800, 811, 819, 823, 827, 832, 835, 839, 847:
+					doStaticSign(0, false);
+					camFollow.x = -35;
+				case 768:
+					FlxTween.tween(camHUD, {alpha: 0}, 1);
+				case 884:
+					var blackFuck3:FlxSprite = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
+					blackFuck3.cameras = [camOther];
+					add(blackFuck3);
+			}
+			if (curStep > 858 && curStep < 884)
+				doStaticSign(0, false); // Honestly quite incredible
+		}
 		if (curStage == 'fatality' && SONG.song.toLowerCase()=='fatality')
 		{
 			switch (curStep)
