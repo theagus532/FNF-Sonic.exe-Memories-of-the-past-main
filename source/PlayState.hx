@@ -402,6 +402,8 @@ class PlayState extends MusicBeatState
 	var fucklesFuckedUpBg:FlxSprite;
 	var fucklesFuckedUpFg:BGSprite;
 	var fucklesTheHealthHog:Array<Float>;
+	// educator shit
+	var Box_Educator:FlxSprite;
 	// starved shit
 	var stardustBgPixel:FlxTiledSprite;
 	var stardustFloorPixel:FlxTiledSprite;
@@ -572,7 +574,6 @@ class PlayState extends MusicBeatState
 		else
 		{
 			detailsText = "Freeplay";
-			songRPC = '???';
 		}
 
 		// String for when the game is paused
@@ -1004,6 +1005,90 @@ class PlayState extends MusicBeatState
 			//	unfinished, ill do later
 			//	fuck you fleetway your code is gibberish
 
+            case 'fakerStage': // lmao
+			
+				defaultCamZoom = 0.95;
+
+				var sky:FlxSprite = new FlxSprite(-631.8, -493.15).loadGraphic(Paths.image('fakerBG/sky'));
+				sky.antialiasing = true;
+				sky.scrollFactor.set(1, 1);
+				sky.active = false;
+				sky.scale.x = .9;
+				sky.scale.y = .9;
+				add(sky);
+
+				var mountains:FlxSprite = new FlxSprite(-631.8, -475.5).loadGraphic(Paths.image('fakerBG/mountains'));
+				mountains.antialiasing = true;
+				mountains.scrollFactor.set(1.1, 1);
+				mountains.active = false;
+				mountains.scale.x = .9;
+				mountains.scale.y = .9;
+				add(mountains);
+
+				var grass:FlxSprite = new FlxSprite(-631.8, -475.5).loadGraphic(Paths.image('fakerBG/grass'));
+				grass.antialiasing = true;
+				grass.scrollFactor.set(1.2, 1);
+				grass.active = false;
+				grass.scale.x = .9;
+				grass.scale.y = .9;
+				add(grass);
+
+				var tree2:FlxSprite = new FlxSprite(-631.8, -475.5).loadGraphic(Paths.image('fakerBG/tree2'));
+				tree2.antialiasing = true;
+				tree2.scrollFactor.set(1.225, 1);
+				tree2.active = false;
+				tree2.scale.x = .9;
+				tree2.scale.y = .9;
+				add(tree2);
+
+				var pillar2:FlxSprite = new FlxSprite(-631.8, -459.55).loadGraphic(Paths.image('fakerBG/pillar2'));
+				pillar2.antialiasing = true;
+				pillar2.scrollFactor.set(1.25, 1);
+				pillar2.active = false;
+				pillar2.scale.x = .9;
+				pillar2.scale.y = .9;
+				add(pillar2);
+
+				var plant:FlxSprite = new FlxSprite(-631.8, -493.15).loadGraphic(Paths.image('fakerBG/plant'));
+				plant.antialiasing = true;
+				plant.scrollFactor.set(1.25, 1);
+				plant.active = false;
+				plant.scale.x = .9;
+				plant.scale.y = .9;
+				add(plant);
+
+				var tree1:FlxSprite = new FlxSprite(-631.8, -493.15).loadGraphic(Paths.image('fakerBG/tree1'));
+				tree1.antialiasing = true;
+				tree1.scrollFactor.set(1.25, 1);
+				tree1.active = false;
+				tree1.scale.x = .9;
+				tree1.scale.y = .9;
+				add(tree1);
+
+				var pillar1:FlxSprite = new FlxSprite(-631.8, -493.15).loadGraphic(Paths.image('fakerBG/pillar1'));
+				pillar1.antialiasing = true;
+				pillar1.scrollFactor.set(1.25, 1);
+				pillar1.active = false;
+				pillar1.scale.x = .9;
+				pillar1.scale.y = .9;
+				add(pillar1);
+
+				var flower1:FlxSprite = new FlxSprite(-631.8, -493.15).loadGraphic(Paths.image('fakerBG/flower1'));
+				flower1.antialiasing = true;
+				flower1.scrollFactor.set(1.25, 1);
+				flower1.active = false;
+				flower1.scale.x = .9;
+				flower1.scale.y = .9;
+				add(flower1);
+
+				var flower2:FlxSprite = new FlxSprite(-631.8, -493.15).loadGraphic(Paths.image('fakerBG/flower2'));
+				flower2.antialiasing = true;
+				flower2.scrollFactor.set(1.25, 1);
+				flower2.active = false;
+				flower2.scale.x = .9;
+				flower2.scale.y = .9;
+				add(flower2);
+			
 			case 'needle':
 				/**
 								READ HOODRATS YOU MONGALOIDS
@@ -1211,6 +1296,12 @@ class PlayState extends MusicBeatState
 				whiteFuck = new FlxSprite(-600, 0).makeGraphic(FlxG.width * 6, FlxG.height * 6, FlxColor.BLACK);
 				whiteFuck.alpha = 0;
 				add(whiteFuck);
+
+			case 'school': // somncic!!!!
+				var BG_Educator:BGSprite = new BGSprite('educator/BGEducator', -600, -200, 1, 1);
+				add(BG_Educator);
+
+				Box_Educator = new BGSprite('educator/BoxEducator', -600, -200, 1, 1);
 
 			case 'starved-pixel':
 				defaultCamZoom = 0.6;
@@ -1552,7 +1643,7 @@ class PlayState extends MusicBeatState
 				//lol lmao
 			case 'requite':
 				//lol lmao
-			case 'satanos':
+	        case 'satanos':
 				defaultCamZoom = 0.75;
 
 				satFloor = new BGSprite('satanos/background', -1300, -800, 1, 0.9);
@@ -1593,7 +1684,7 @@ class PlayState extends MusicBeatState
 		// use this for 4:3 aspect ratio shit lmao
 		switch (SONG.song.toLowerCase())
 		{
-			case 'fatality' | "milk":
+			case 'fatality' | "prey" | 'playful' | "milk":
 				isFixedAspectRatio = true;
 			default:
 				isFixedAspectRatio = false;
@@ -1685,7 +1776,12 @@ class PlayState extends MusicBeatState
 				add(hogRocks);
 				add(hogOverlay);
 				hogOverlay.blend = LIGHTEN;
-			case 'xterion' | 'starved-pixel' | 'starved' | 'chamber' | 'sanicStage' | 'void' | 'fatality' | 'cycles-hills':
+
+			case 'school':
+			    gfGroup.visible = false;
+				add(Box_Educator);
+
+			case 'xterion' | 'starved-pixel' | 'starved' | 'chamber' | 'sanicStage' | 'void' | 'satanos' | 'fatality' | 'cycles-hills':
 				gfGroup.visible = false;
 			}
 		trace(boyfriendGroup);
@@ -2606,6 +2702,59 @@ class PlayState extends MusicBeatState
 							tmr.reset(Conductor.crochet / 700);
 					});
 
+				case 'playful':
+
+					var Three:FlxSprite = new FlxSprite().loadGraphic(Paths.image('educator/Countdown/3'));
+					var Two:FlxSprite = new FlxSprite().loadGraphic(Paths.image('educator/Countdown/2'));
+					var One:FlxSprite = new FlxSprite().loadGraphic(Paths.image('educator/Countdown/1'));
+					var Go:FlxSprite = new FlxSprite().loadGraphic(Paths.image('educator/Countdown/Go'));
+
+					Three.scale.x = 0.5; // i despise all coding.
+					Two.scale.x = 0.5;
+                    One.scale.x = 0.5;
+					Go.scale.x = 0.7;
+					Three.scale.y = 0.5;
+					Two.scale.y = 0.5;
+					One.scale.y = 0.5;
+					Go.scale.y = 0.7;
+					Three.screenCenter();
+					Two.screenCenter();
+					One.screenCenter();
+					Go.screenCenter();
+					Three.cameras = [camHUD];
+					Two.cameras = [camHUD];
+					One.cameras = [camHUD];
+					Go.cameras = [camHUD];
+					var amongus:Int = 0;
+
+					new FlxTimer().start(1, function(tmr:FlxTimer)
+					{
+						switch (amongus)
+						{
+							case 0:
+								add(Three);
+								FlxTween.tween(Three.scale, {x: .9, y: .9}, Conductor.crochet / 500);
+							case 1:
+								Three.visible = false;
+								add(Two);
+								FlxTween.tween(Two.scale, {x: .9, y: .9}, Conductor.crochet / 500);
+							case 2:
+								startCountdown();
+								Two.visible = false;
+								add(One);
+								FlxTween.tween(One.scale, {x: .9, y: .9}, Conductor.crochet / 500);	
+							case 3:
+								One.visible = false;
+								add(Go);
+								FlxTween.tween(Go.scale, {x: 1.1, y: 1.1}, Conductor.crochet / 500);
+							case 4:
+								Go.visible = false;
+								canPause = true;
+						}
+						amongus += 1;
+						if (amongus < 5)
+							tmr.reset(Conductor.crochet / 700);
+					});
 
 				case "fatality":
 					var swagCounter:Int = 0;
@@ -2691,7 +2840,7 @@ class PlayState extends MusicBeatState
 
 			switch (curSong)
 			{
-				case 'sunshine', 'chaos':
+				case 'sunshine', 'playful', 'chaos':
 				default:
 					startCountdown();
 			}
@@ -8055,6 +8204,45 @@ class PlayState extends MusicBeatState
 								});
 						}
 
+				}
+
+			if (SONG.song.toLowerCase() == 'Manual Blast')
+				{
+					switch (curStep)
+						{		
+							case 864:
+								FlxG.camera.flash(FlxColor.BLACK, 1);
+								dadGroup.remove(dad);
+								var olddx = dad.x - 230;
+								var olddy = dad.y - 170;
+								dad = new Character(olddx, olddy, 'scorched');
+								iconP2.changeIcon(dad.healthIcon);
+								dadGroup.add(dad);	
+							case 4160:
+								FlxG.camera.flash(FlxColor.BLACK, 1);
+								dadGroup.remove(dad);
+								var olddx = dad.x - 230;
+								var olddy = dad.y - 170;
+								dad = new Character(olddx, olddy, 'scorchedglitch');
+								iconP2.changeIcon(dad.healthIcon);
+								dadGroup.add(dad);	
+							case 4448:
+								FlxG.camera.flash(FlxColor.BLACK, 1);
+								dadGroup.remove(dad);
+								var olddx = dad.x - 230;
+								var olddy = dad.y - 170;
+								dad = new Character(olddx, olddy, 'scorchedglitch2');
+								iconP2.changeIcon(dad.healthIcon);
+								dadGroup.add(dad);	
+							case 4480:
+								FlxG.camera.flash(FlxColor.BLACK, 1);
+								dadGroup.remove(dad);
+								var olddx = dad.x - 230;
+								var olddy = dad.y - 170;
+								dad = new Character(olddx, olddy, 'scorchedglitch2');
+								iconP2.changeIcon(dad.healthIcon);
+								dadGroup.add(dad);	
+						}
 				}
 
 			if (SONG.song.toLowerCase() == 'too-fest')

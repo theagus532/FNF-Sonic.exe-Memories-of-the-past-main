@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				95,
+				-9
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "educator left"
+		},
+		{
+			"offsets": [
+				-9,
+				-19
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "educator down"
+		},
+		{
+			"offsets": [
+				0,
+				-15
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "educator up"
+		},
+		{
+			"offsets": [
+				-41,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "educator right"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 18,
+			"anim": "idle",
+			"indices": [],
+			"name": "educator idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Playful_Assets/Educator_Assets",
+	"position": [
+		150,
+		330
+	],
+	"healthicon": "educator",
+	"flip_x": false,
+	"healthbar_colors": [
+		34,
+		38,
+		254
+	],
+	"camera_position": [
+		-425,
+		-120
+	],
+	"sing_duration": 6.1,
+	"scale": 2.15
+}

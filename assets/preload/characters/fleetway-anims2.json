@@ -3,6 +3,28 @@
 		{
 			"loop": false,
 			"offsets": [
+				-95,
+				-157
+			],
+			"anim": "AAAA",
+			"fps": 24,
+			"name": "Fleetway Scream",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-110
+			],
+			"anim": "shut-up",
+			"fps": 24,
+			"name": "Fleetway Shut Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
 				0,
 				0
 			],
@@ -14,82 +36,43 @@
 		{
 			"loop": false,
 			"offsets": [
-				90,
-				-60
+				-96,
+				-170
 			],
 			"anim": "Right Alt",
 			"fps": 24,
 			"name": "Fleetway Right Alt",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15
-			]
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				-40
-			],
-			"anim": "AAAA",
-			"fps": 24,
-			"name": "Fleetway Scream",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				160,
-				90
+				6,
+				-63
 			],
 			"anim": "Ill show you",
 			"fps": 24,
 			"name": "Fleetway Show You",
 			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				60,
-				26
-			],
-			"anim": "Shut up",
-			"fps": 24,
-			"name": "Fleetway Shut Up",
-			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/fleetway2",
+	"image": "characters/Chaos_Assets/Fleetway_Super_Sonic_Extra_Anims_2_Assets",
 	"position": [
-		60,
-		110
+		-220,
+		-460
 	],
 	"healthicon": "fleetway",
 	"flip_x": false,
 	"healthbar_colors": [
-		220,
-		255,
+		254,
+		209,
 		0
 	],
 	"camera_position": [
-		-50,
-		50
+		0,
+		0
 	],
-	"sing_duration": 4,
-	"scale": 0.95
+	"sing_duration": 6.1,
+	"scale": 1
 }
