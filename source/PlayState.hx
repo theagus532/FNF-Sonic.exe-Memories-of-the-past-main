@@ -8241,7 +8241,7 @@ class PlayState extends MusicBeatState
 
 				}
 
-			if (SONG.song.toLowerCase() == 'Manual Blast')
+			if (SONG.song.toLowerCase() == 'Manual blast')
 				{
 					switch (curStep)
 						{		
@@ -8274,7 +8274,7 @@ class PlayState extends MusicBeatState
 								dadGroup.remove(dad);
 								var olddx = dad.x - 230;
 								var olddy = dad.y - 170;
-								dad = new Character(olddx, olddy, 'scorchedglitch2');
+								dad = new Character(olddx, olddy, 'scorchedglitch');
 								iconP2.changeIcon(dad.healthIcon);
 								dadGroup.add(dad);	
 						}

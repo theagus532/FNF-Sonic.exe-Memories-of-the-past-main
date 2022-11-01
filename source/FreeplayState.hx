@@ -46,7 +46,7 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 
 	var boxgrp:SkewSpriteGroup;
 
-	var bg:FlxSprite;
+	var bg:FlxBackdrop;
 	
 	var scrollingBg:FlxBackdrop;
 
@@ -73,8 +73,7 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 		whiteshit = new FlxSprite().makeGraphic(1280, 720, FlxColor.WHITE);
 		whiteshit.alpha = 0;
 
-		bg = new FlxSprite().loadGraphic(Paths.image('backgroundlool'));
-		bg.screenCenter();
+		bg = new FlxBackdrop(Paths.image('backgroundlool'), 1, 1, true, true);
 		bg.setGraphicSize(1280, 720);
 		add(bg);
 
