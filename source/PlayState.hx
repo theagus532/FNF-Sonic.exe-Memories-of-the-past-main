@@ -8001,18 +8001,24 @@ class PlayState extends MusicBeatState
 						isCameraOnForcedPos = true;
 				}
 			}
-		if (curStage == 'fakerStage' && SONG.song.toLowerCase()=='Faker')
+		if (SONG.song.toLowerCase() == 'Faker')
 		{
 			switch(curStep){
-				case 787, 795, 902, 800, 811, 819, 823, 827, 832, 835, 839, 847:
-					doStaticSign(0, false);
-					camFollow.x = -35;
-				case 768:
-					FlxTween.tween(camHUD, {alpha: 0}, 1);
-				case 884:
-					var blackFuck3:FlxSprite = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
-					blackFuck3.cameras = [camOther];
-					add(blackFuck3);
+				    case 1:
+						timeBar.createFilledBar(0x00242490, 0xFF242490);
+					    timeBar.updateBar();
+				    case 787, 795, 902, 800, 811, 819, 823, 827, 832, 835, 839, 847:
+					    doStaticSign(0, false);
+					    camFollow.x = -35;
+				    case 768:
+					    FlxTween.tween(camHUD, {alpha: 0}, 1);
+				    case 884:
+						timeBar.createFilledBar(0x001A2AA8, 0xFF1A2AA8);
+					    timeBar.updateBar();
+
+					    var blackFuck3:FlxSprite = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
+					    blackFuck3.cameras = [camOther];
+					    add(blackFuck3);
 			}
 			if (curStep > 858 && curStep < 884)
 				doStaticSign(0, false); // Honestly quite incredible
@@ -8241,6 +8247,10 @@ class PlayState extends MusicBeatState
 			{
 				switch (curStep)
 					{
+						case 1:
+							timeBar.createFilledBar(0x00383838, 0xFF383838);
+							timeBar.updateBar();
+
 						case 1823:
 							doStaticSign();
 							slashChangingShit();
@@ -8320,7 +8330,7 @@ class PlayState extends MusicBeatState
 				    switch (curStep)
 					    {
 							case 1:
-								timeBar.createFilledBar(0xFFFBB61C, 0xFFFBB61C);
+								timeBar.createFilledBar(0x00FBB61C, 0xFFFBB61C);
 								timeBar.updateBar();
 						}
 				}

@@ -256,7 +256,7 @@ class SoundTestMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new PlayState());
 				});
 			}
-		else if (first == 75 && second == 9)
+		else if (first == 65 && second == 9)
 			{
 				woahmanstopspammin = false;
 				PlayStateChangeables.nocheese = false;
