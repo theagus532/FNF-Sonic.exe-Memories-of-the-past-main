@@ -221,6 +221,8 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 	override function update(elapsed:Float)
 	{
 
+		bg.x += 1;
+
 		scrollingBg.y += 1;
 
 		super.update(elapsed);

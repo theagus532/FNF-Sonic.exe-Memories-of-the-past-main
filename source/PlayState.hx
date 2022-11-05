@@ -1939,7 +1939,7 @@ class PlayState extends MusicBeatState
 				gfGroup.visible = false;
 			case 'too-slow':
 				dad.x -= 120;
-				dad.y -= 40;
+				dad.y -= 40; 
 				add(fgTrees);
 			case 'cant-run-xd':
 				dad.x -= 75;
@@ -2574,7 +2574,7 @@ class PlayState extends MusicBeatState
 					camHUD.alpha = 0;
 					startCountdown();
 
-				case 'too-slow' | 'you-cant-run' | 'triple-trouble' | 'endless' | 'cycles' | 'prey' | 'fight-or-flight'| 'round-a-bout':
+				case 'too-slow' | 'you-cant-run' | 'triple-trouble' | 'endless' | 'cycles' | 'faker' |  'prey' | 'fight-or-flight'| 'b4cksl4sh' | 'round-a-bout':
 
 					if (daSong == 'too-slow' || daSong == 'you-cant-run' || daSong == 'cycles')
 						{
@@ -8001,7 +8001,7 @@ class PlayState extends MusicBeatState
 						isCameraOnForcedPos = true;
 				}
 			}
-		if (SONG.song.toLowerCase() == 'Faker')
+		if (curStage == 'fakerStage' && SONG.song.toLowerCase()=='faker')
 		{
 			switch(curStep){
 				    case 1:
@@ -8013,9 +8013,6 @@ class PlayState extends MusicBeatState
 				    case 768:
 					    FlxTween.tween(camHUD, {alpha: 0}, 1);
 				    case 884:
-						timeBar.createFilledBar(0x001A2AA8, 0xFF1A2AA8);
-					    timeBar.updateBar();
-
 					    var blackFuck3:FlxSprite = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
 					    blackFuck3.cameras = [camOther];
 					    add(blackFuck3);
@@ -8530,8 +8527,10 @@ class PlayState extends MusicBeatState
 							holyFuckStopZoomin = false;
 						case 2592:
 							iconP1.changeIcon(gf.healthIcon);
+							reloadHealthBarColors();
 						case 3360:
 							iconP1.changeIcon('duo');
+							reloadHealthBarColors();
 
 						// shit for da uhhhhhhhhhhhhhhhhhhhhhhhh trails
 						case 2081, 2719, 2848:
