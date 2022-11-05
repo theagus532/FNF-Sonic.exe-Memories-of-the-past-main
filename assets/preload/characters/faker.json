@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				80,
 				-80
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "FAKER IDLE instance"
+			"fps": 24,
+			"name": "FAKER IDLE instance",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				104,
 				-20
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "FAKER UP instance"
+			"fps": 24,
+			"name": "FAKER UP instance",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				251,
 				-60
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "FAKER LEFT instance"
+			"fps": 24,
+			"name": "FAKER LEFT instance",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-120
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "FAKER DOWN instance"
+			"fps": 24,
+			"name": "FAKER DOWN instance",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				130,
 				-53
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "FAKER RIGHT instance"
+			"fps": 24,
+			"name": "FAKER RIGHT instance",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Faker_Assets/Faker_Assets",
 	"position": [
 		0,
-		0
+		-30
 	],
 	"healthicon": "faker",
 	"flip_x": false,
@@ -70,8 +70,8 @@
 		144
 	],
 	"camera_position": [
-		-80,
-		60
+		0,
+		80
 	],
 	"sing_duration": 6.1,
 	"scale": 1

@@ -304,6 +304,11 @@ class PlayState extends MusicBeatState
 	var dadCamThing:Array<Int> = [0, 0];
 	var bfCamThing:Array<Int> = [0, 0];
 	var cameramove:Bool = FlxG.save.data.cammove;
+	//zoom bullshit
+	public var wowZoomin:Bool = false;
+	public var holyFuckStopZoomin:Bool = false;
+	public var pleaseStopZoomin:Bool = false;
+	public var ohGodTheZooms:Bool = false;
 	// - cutscene shit
 	var topBar:FlxSprite;
 	var bottomBar:FlxSprite;
@@ -437,6 +442,22 @@ class PlayState extends MusicBeatState
 	var slashBgPov:BGSprite;
 	var slashFloorPov:BGSprite;
 	var slashLavaPov:FlxSprite;
+	// normal shit
+	private var metalTrail:FlxTrail;
+	private var amyTrail:FlxTrail;
+	private var normalTrail:FlxTrail;
+	var soulGlassTime:Bool = false;
+	var normalBg:FlxSprite;
+	var normalFg:FlxSprite;
+	var normalTv:FlxSprite;
+	var normalVg:FlxSprite;
+	var normalShadow:FlxSprite;
+	var normalDoor:FlxSprite;
+	var normalScreen:FlxSprite;
+	var normalChars:FlxSprite;
+
+	public var normalCharShit:Int;
+	public var normalBool:Bool = false;
 	//curse shit lololololol
 	var curseStatic:FlxSprite;
 	var hexTimer:Float = 0;
@@ -1458,6 +1479,74 @@ class PlayState extends MusicBeatState
 
 				add(slashLavaPov);
 				add(slashFloorPov);
+
+			case 'founded':
+				defaultCamZoom = 0.95;
+
+				normalBg = new FlxSprite(-150, -200);
+				normalBg.loadGraphic(Paths.image('normal/bg', 'exe'));
+				normalBg.scrollFactor.set(1, 1);
+				normalBg.antialiasing = true;
+				normalBg.scale.set(1.2, 1.2);
+				add(normalBg);
+
+				normalDoor = new FlxSprite(-245, -760);
+				normalDoor.frames = Paths.getSparrowAtlas('normal/doorbangin', 'exe');
+				normalDoor.animation.addByPrefix('idle', 'doorbangin', 24, false);
+				normalDoor.scrollFactor.set(1, 1);
+				normalDoor.antialiasing = true;
+				normalDoor.scale.set(1.2, 1.2);
+
+				normalScreen = new FlxSprite(1600, 150);
+				normalScreen.frames = Paths.getSparrowAtlas('normal/bigscreen', 'exe');
+				normalScreen.animation.addByPrefix('idle', 'bigscreenstaticfinal', 24, true);
+				normalScreen.animation.play('idle');
+				normalScreen.scrollFactor.set(1, 1);
+				normalScreen.antialiasing = true;
+				normalScreen.alpha = 0.5;
+				normalScreen.scale.set(1.2, 1.2);
+				
+
+				normalChars = new FlxSprite(1650, 235);
+				normalChars.frames = Paths.getSparrowAtlas('normal/charactersappear', 'exe');
+				normalChars.animation.addByPrefix('chaotix', 'Chaotix Appears', 24, false);
+				normalChars.animation.addByPrefix('curse', 'Curse Appears', 24, false);
+				normalChars.animation.addByPrefix('rex', 'Revived Appears', 24, false);
+				normalChars.animation.addByPrefix('rodent', 'Rodent Appears', 24, false);
+				normalChars.animation.addByPrefix('spoiled', 'Spoiled Appears', 24, false);
+				normalChars.scrollFactor.set(1, 1);
+				normalChars.antialiasing = true;
+				normalChars.scale.set(1.2, 1.2);
+				add(normalChars);
+				add(normalScreen);
+
+				normalTv = new FlxSprite(-150, -200);
+				normalTv.loadGraphic(Paths.image('normal/tv', 'exe'));
+				normalTv.scrollFactor.set(1, 1);
+				normalTv.antialiasing = true;
+				normalTv.scale.set(1.2, 1.2);
+				add(normalTv);
+
+				normalShadow = new FlxSprite(-150, -220);
+				normalShadow.loadGraphic(Paths.image('normal/shadow', 'exe'));
+				normalShadow.scrollFactor.set(1, 1);
+				normalShadow.antialiasing = true;
+				normalShadow.scale.set(1.2, 1.2);
+				normalShadow.alpha = 0.8;
+				add(normalShadow);
+
+				normalVg = new FlxSprite(-150, -200);
+				normalVg.loadGraphic(Paths.image('normal/vignette', 'exe'));
+				normalVg.scrollFactor.set(1, 1);
+				normalVg.antialiasing = true;
+				normalVg.scale.set(1.2, 1.2);
+
+				normalFg = new FlxSprite(-150, -200);
+				normalFg.loadGraphic(Paths.image('normal/front', 'exe'));
+				normalFg.scrollFactor.set(1.1, 1);
+				normalFg.antialiasing = true;
+				normalFg.scale.set(1.2, 1.2);
+
 			case 'curse':
 				//THE CURSE OF X SEETHES AND MALDS
 				curseStatic = new FlxSprite(0, 0);
@@ -1600,9 +1689,9 @@ class PlayState extends MusicBeatState
 				**/
 
 				defaultCamZoom = 0.68;
-                hogBg = new BGSprite('hog/bg', 0, 0, 1.1, 0.9);
-                hogBg.scale.x = 1.5;
-                hogBg.scale.y = 1.5;
+                hogBg = new BGSprite('hog/bg', 0, -300, 1.1, 0.9);
+                hogBg.scale.x = 2;
+                hogBg.scale.y = 2;
                 add(hogBg);
 
 				hogMotain = new BGSprite('hog/motains', 0, 0, 1.1, 0.9);
@@ -1639,6 +1728,7 @@ class PlayState extends MusicBeatState
 				hogOverlay = new BGSprite('hog/overlay', -800, -300, 1.1, 0.9);
                 hogOverlay.scale.x = 1.25;
                 hogOverlay.scale.y = 1.25;
+
 			case 'requital':
 				//lol lmao
 			case 'requite':
@@ -1910,6 +2000,12 @@ class PlayState extends MusicBeatState
 				boyfriend.y += 75;
 				dad.x += 300;
 				dad.y -= 350;
+			case 'founded':
+				dad.visible = false;
+				dad.x -= 500;
+				add(normalDoor);
+				add(normalFg);
+				add(normalVg);
 			case 'hog':
 				dad.y += 30;
 				dad.x += 75;
@@ -2450,7 +2546,6 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
-
 				default:
 					startCountdown();
 			}
@@ -2530,7 +2625,25 @@ class PlayState extends MusicBeatState
 						});
 					});
 
+				case  'my-horizon' | 'our-horizon':
+					add(blackFuck);
+					startCircle.loadGraphic(Paths.image('StartScreens/' + daSong + '_title_card', 'exe'));
+					startCircle.frames = Paths.getSparrowAtlas('StartScreens/' + daSong + '_title_card', 'exe');
+					startCircle.animation.addByPrefix('idle', daSong + '_title', 24, false);
+					//startCircle.setGraphicSize(Std.int(startCircle.width * 0.6));
+					startCircle.alpha = 0;
+					startCircle.screenCenter();
+					add(startCircle);
 
+				case 'found-you':
+					snapCamFollowToPos(700, 400);
+					new FlxTimer().start(0, function(tmr:FlxTimer)
+						{
+							FlxG.camera.focusOn(camFollowPos.getPosition());
+						});
+					camHUD.visible = false;
+					startCountdown();
+				
 				case 'milk':
 					startCountdown();
 					add(blackFuck);
@@ -2891,7 +3004,7 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 
-		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past- " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
+		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
 		#if desktop
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter());
@@ -3541,7 +3654,6 @@ class PlayState extends MusicBeatState
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
 
-		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past- " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
 		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
 		DiscordClient.changePresence(detailsText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength);
@@ -4049,7 +4161,7 @@ class PlayState extends MusicBeatState
 
 			callOnLuas('onResume', []);
 
-			Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past- " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
+			Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
 
 			#if desktop
 			if (startTimer.finished)
@@ -4505,7 +4617,7 @@ class PlayState extends MusicBeatState
 				PauseSubState.transCamera = camOther;
 				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
-				Lib.application.window.title = "Sonic.exe' Memories Of The Past - Pause Menu";
+				Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Pause Menu";
 				#if desktop
 				DiscordClient.changePresence(detailsPausedText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 				#end
@@ -4519,7 +4631,7 @@ class PlayState extends MusicBeatState
 			cancelFadeTween();
 			MusicBeatState.switchState(new ChartingState());
 
-			Lib.application.window.title = "Sonic.exe' Memories Of The Past - Chart Editor";
+			Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Chart Editor";
 			#if desktop
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
@@ -5252,7 +5364,7 @@ class PlayState extends MusicBeatState
 				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
 
-				Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past -" + curSong + " [Game Over] ";
+				Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - " + curSong + " [Game Over] ";
 				DiscordClient.changePresence("Game Over - " + detailsText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 				#end
 				isDead = true;
@@ -6312,7 +6424,7 @@ class PlayState extends MusicBeatState
 			{
 				trace('WENT BACK TO FREEPLAY??');
 				cancelFadeTween();
-				MusicBeatState.switchState(new FreeplayState());
+				MusicBeatState.switchState(new MainMenuState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				usedPractice = false;
 				changedDifficulty = false;
@@ -8203,6 +8315,16 @@ class PlayState extends MusicBeatState
 					}
 			}
 
+            if (SONG.song.toLowerCase() == 'forestall desire')
+				{
+				    switch (curStep)
+					    {
+							case 1:
+								timeBar.createFilledBar(0xFFFBB61C, 0xFFFBB61C);
+								timeBar.updateBar();
+						}
+				}
+
 			if (SONG.song.toLowerCase() == 'hedge')
 				{
 					switch (curStep)
@@ -8242,46 +8364,7 @@ class PlayState extends MusicBeatState
 						}
 
 				}
-
-			if (SONG.song.toLowerCase() == 'Manual blast')
-				{
-					switch (curStep)
-						{		
-							case 864:
-								FlxG.camera.flash(FlxColor.BLACK, 1);
-								dadGroup.remove(dad);
-								var olddx = dad.x - 230;
-								var olddy = dad.y - 170;
-								dad = new Character(olddx, olddy, 'scorched');
-								iconP2.changeIcon(dad.healthIcon);
-								dadGroup.add(dad);	
-							case 4160:
-								FlxG.camera.flash(FlxColor.BLACK, 1);
-								dadGroup.remove(dad);
-								var olddx = dad.x - 230;
-								var olddy = dad.y - 170;
-								dad = new Character(olddx, olddy, 'scorchedglitch');
-								iconP2.changeIcon(dad.healthIcon);
-								dadGroup.add(dad);	
-							case 4448:
-								FlxG.camera.flash(FlxColor.BLACK, 1);
-								dadGroup.remove(dad);
-								var olddx = dad.x - 230;
-								var olddy = dad.y - 170;
-								dad = new Character(olddx, olddy, 'scorchedglitch2');
-								iconP2.changeIcon(dad.healthIcon);
-								dadGroup.add(dad);	
-							case 4480:
-								FlxG.camera.flash(FlxColor.BLACK, 1);
-								dadGroup.remove(dad);
-								var olddx = dad.x - 230;
-								var olddy = dad.y - 170;
-								dad = new Character(olddx, olddy, 'scorchedglitch');
-								iconP2.changeIcon(dad.healthIcon);
-								dadGroup.add(dad);	
-						}
-				}
-
+				
 			if (SONG.song.toLowerCase() == 'too-fest')
 				{
 					switch (curStep)
@@ -8393,6 +8476,71 @@ class PlayState extends MusicBeatState
 			/**hungryManJackTime = true;
 				boyfriendGroup.remove(boyfriend);
 				**/
+
+			if (SONG.song.toLowerCase() == 'found you')
+				{
+					switch (curStep)
+					{
+						case 1: // do it jiggle?
+						    timeBar.createFilledBar(0x005E74A3, 0xFF5E74A3);
+						    timeBar.updateBar();
+							normalDoor.animation.play('idle');
+						case 25, 48, 56:
+							FlxG.camera.zoom += 0.15;
+						case 2:
+							defaultCamZoom = 1.35; //1.35
+							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1, {ease: FlxEase.quadInOut});
+						case 64, 72:
+							FlxG.camera.zoom += 0.05;
+						case 76:
+							FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 2, {ease: FlxEase.cubeInOut});
+						case 93:
+							dad.visible = true;
+							camGame.shake(0.01, 1);
+							defaultCamZoom = 1.35;
+							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 1, {ease: FlxEase.quadInOut});
+						case 94:
+							FlxTween.tween(dad, {x: 100}, 0.5, {ease: FlxEase.quadOut});
+						case 113:
+							defaultCamZoom = 0.85;
+							FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.35, {ease: FlxEase.quadOut});
+						case 160:
+							normalBool = true; 
+							FlxG.camera.focusOn(dad.getPosition());
+							camHUD.visible = true;
+							camHUD.zoom += 2;
+							FlxTween.tween(camHUD, {alpha: 1}, 1);
+						case 416, 1184, 1696, 2720:
+							wowZoomin = true;
+						case 800, 1311, 1823, 2847:
+							wowZoomin = false;
+						case 928, 1312, 1824, 2080, 3361, 2336, 2848, 3782:
+							holyFuckStopZoomin = true;
+						case 1056, 1568, 2079, 2335, 3871, 2591, 3359, 4138:
+							holyFuckStopZoomin = false;
+						case 2592:
+							iconP1.changeIcon(gf.healthIcon);
+						case 3360:
+							iconP1.changeIcon('duo');
+
+						// shit for da uhhhhhhhhhhhhhhhhhhhhhhhh trails
+						case 2081, 2719, 2848:
+							chaotixGlass(1);
+						case 2816, 2976:
+							revivedIsPissed(1);
+						case 2145:
+							chaotixGlass(2);
+						case 2334:
+							revivedIsPissed(1);
+							revivedIsPissed(2);
+						case 3362:
+							chaotixGlass(1);
+							chaotixGlass(2);
+						case 4135:
+							revivedIsPissed(1);
+							revivedIsPissed(2);
+					}
+				}	
 			if (SONG.song.toLowerCase() == 'malediction')
 			{
 				switch (curStep)
@@ -8431,6 +8579,39 @@ class PlayState extends MusicBeatState
 			Lib.application.window.move(Lib.application.window.x + FlxG.random.int(-10, 10), Lib.application.window.y + FlxG.random.int(-8, 8));
 		}, 50);
 	}
+
+		function chaotixGlass(ass:Int)
+		{
+			switch (ass)
+				{
+					case 1:
+						normalTrail = new FlxTrail(dad, null, 2, 12, 0.20, 0.05);
+						add(normalTrail);
+						soulGlassTime = true;
+					case 2:
+						metalTrail = new FlxTrail(boyfriend, null, 2, 12, 0.20, 0.05);
+						add(metalTrail);
+					case 3:
+						amyTrail = new FlxTrail(gf, null, 2, 12, 0.20, 0.05);
+						add(amyTrail);
+				}
+		}
+
+	function revivedIsPissed(ass:Int)
+		{
+			{
+				switch (ass)
+					{
+						case 1:
+							soulGlassTime = false;
+							remove(normalTrail);
+						case 2:
+							remove(metalTrail);
+						case 3:
+							remove(amyTrail);
+					}
+			}
+		}
 
 	function literallyMyHorizon()
 		{

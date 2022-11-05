@@ -75,7 +75,7 @@ class MainMenuState extends MusicBeatState
 		}*/
 
 
-		Lib.application.window.title = "Sonic.exe' Memories Of The Past - Main Menu";
+		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Main Menu";
 		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -279,7 +279,7 @@ class MainMenuState extends MusicBeatState
 						{
 							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 							{
-								Lib.application.window.title = "Sonic.exe' Memories Of The Past";
+								Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past";
 
 								var daChoice:String = optionShit[curSelected];
 
@@ -316,6 +316,11 @@ class MainMenuState extends MusicBeatState
 			if (FlxG.keys.justPressed.EIGHT)
 			{
 				MusicBeatState.switchState(new FreeplayState());
+				//changeItem(1);
+			}
+			if (FlxG.keys.justPressed.NINE)
+			{
+				MusicBeatState.switchState(new SoundTestMenu());
 				//changeItem(1);
 			}
 		}

@@ -209,7 +209,7 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 
 		 #if windows
 
-		 Lib.application.window.title = "Sonic.exe' Memories Of The Past - Freeplay";
+		 Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Freeplay";
 		 // Updating Discord Rich Presence
 		 DiscordClient.changePresence("In the Freeplay Menu", null);
 		 #end

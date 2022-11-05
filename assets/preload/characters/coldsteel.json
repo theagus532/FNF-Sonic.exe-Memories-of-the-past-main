@@ -1,63 +1,63 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				40,
 				-55
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "coldsteel left"
+			"fps": 24,
+			"name": "coldsteel left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-214,
 				203
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "coldsteel right"
+			"fps": 24,
+			"name": "coldsteel right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-108,
 				109
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "coldsteel up"
+			"fps": 24,
+			"name": "coldsteel up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				220,
 				-268
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "coldsteel down"
+			"fps": 24,
+			"name": "coldsteel down",
+			"indices": []
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-170,
 				0
 			],
-			"anim": "idle",
+			"loop": true,
 			"fps": 24,
-			"name": "coldsteel idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "coldsteel idle"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/coldsteel_assets",
+	"image": "characters/Personel_Assets/Coldsteel_Assets",
 	"position": [
 		-150,
 		-60

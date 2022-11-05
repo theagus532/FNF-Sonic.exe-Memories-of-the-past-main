@@ -281,7 +281,9 @@ class PauseSubState extends MusicBeatSubstate
 					case 7:
 						FlxG.sound.play(Paths.sound("switch"));
 				}
-				System.exit(0);
+				PlayState.cpuControlled = !PlayState.cpuControlled;
+				PlayState.usedPractice = true;
+				botplayText.visible = PlayState.cpuControlled; //imagine not being a dev
 			}
 		#end
 

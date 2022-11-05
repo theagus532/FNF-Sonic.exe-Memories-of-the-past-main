@@ -256,6 +256,23 @@ class SoundTestMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new PlayState());
 				});
 			}
+		else if (first == 75 && second == 9)
+			{
+				woahmanstopspammin = false;
+				PlayStateChangeables.nocheese = false;
+
+				PlayState.SONG = Song.loadFromJson('round-a-bout-hard', 'round a bout');
+				PlayState.isStoryMode = false;
+				PlayState.storyDifficulty = 2;
+				PlayState.storyWeek = 1;
+				           
+				           
+				flashyWashy(true);
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					LoadingState.loadAndSwitchState(new PlayState());
+				});
+			}
 		else if (first == 41 && second == 1) 
 		{
 			woahmanstopspammin = false;
