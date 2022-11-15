@@ -3,251 +3,108 @@
 		{
 			"loop": false,
 			"offsets": [
-				-3,
-				5
-			],
-			"anim": "hey",
-			"fps": 24,
-			"name": "BF HEY",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				15,
-				18
-			],
-			"anim": "hurt",
-			"fps": 24,
-			"name": "BF hit",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				-4,
+				-5,
 				0
-			],
-			"anim": "scared",
-			"fps": 24,
-			"name": "BF idle shaking",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				11
-			],
-			"anim": "firstDeath",
-			"fps": 24,
-			"name": "BF dies",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				37,
-				5
-			],
-			"anim": "deathLoop",
-			"fps": 24,
-			"name": "BF Dead Loop",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				69
-			],
-			"anim": "deathConfirm",
-			"fps": 24,
-			"name": "BF Dead confirm",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-10,
-				-16
-			],
-			"anim": "dodge",
-			"fps": 24,
-			"name": "boyfriend dodge",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				294,
-				267
-			],
-			"anim": "attack",
-			"fps": 24,
-			"name": "boyfriend attack",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-40,
-				-40
-			],
-			"anim": "pre-attack",
-			"fps": 24,
-			"name": "bf pre attack",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-19,
-				29
-			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "SSBF LEFT instance 1",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-45,
-				20
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "SSBF IDLE instance 1",
+			"name": "idle",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-40,
-				10
+				-4,
+				1
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "singLEFT0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-4,
+				2
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "SSBF DOWN instance 1",
+			"name": "singDOWN0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-44,
-				28
+				-4,
+				1
 			],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "SSBF UP instance 1",
+			"name": "singUP0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-46,
-				16
+				-4,
+				1
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "SSBF RIGHT instance 1",
+			"name": "singRIGHT0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-27,
-				21
+				-8,
+				2
 			],
-			"anim": "singLEFTMISS",
-			"fps": 24,
-			"name": "SSBF LEFTmiss instance 1",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-50,
-				30
-			],
-			"anim": "singUPMISS",
-			"fps": 24,
-			"name": "SSBF UPmiss instance 1",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-30,
-				40
-			],
-			"anim": "singDOWNMISS",
-			"fps": 24,
-			"name": "SSBF DOWNmiss instance 1",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-33,
-				35
-			],
-			"anim": "singRIGHTMISS",
-			"fps": 24,
-			"name": "SSBF RIGHTmiss instance 1",
-			"indices": []
-		},
-		{
-			"offsets": [
-				7,
-				19
-			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"loop": false,
-			"name": "SSBF LEFTmiss instance 1"
+			"fps": 24,
+			"name": "singLEFTmiss",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				-15,
-				-19
+				-4,
+				1
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWNmiss",
-			"loop": false,
-			"name": "SSBF DOWNmiss instance 1"
+			"fps": 24,
+			"name": "singDOWNmiss",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				-36,
-				27
+				-1,
+				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUPmiss",
-			"loop": false,
-			"name": "SSBF UPmiss instance 1"
+			"fps": 24,
+			"name": "singUPmiss",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-44,
-				22
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHTmiss",
 			"loop": false,
-			"name": "SSBF RIGHTmiss instance 1"
+			"offsets": [
+				-1,
+				0
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "singRIGHTmiss",
+			"indices": []
 		}
 	],
-	"no_antialiasing": false,
-	"image": "characters/SSBF_Assets",
+	"no_antialiasing": true,
+	"image": "characters/Substantial_Assets/Threed_BF_Assets",
 	"position": [
-		0,
-		350
+		250,
+		450
 	],
 	"healthicon": "SSBF",
 	"flip_x": true,
@@ -257,9 +114,9 @@
 		209
 	],
 	"camera_position": [
-		0,
-		0
+		400,
+		-150
 	],
 	"sing_duration": 4,
-	"scale": 1
+	"scale": 3.3
 }

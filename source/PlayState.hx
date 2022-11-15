@@ -86,11 +86,11 @@ typedef BasicSpeedChange = {
 
 class PlayState extends MusicBeatState
 {
-	var modchartedSongs:Array<String> = ['perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
+	var modchartedSongs:Array<String> = ['too-slow', 'perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
 
 	// THEN GOTO MODCHARTSHIT.HX TO DEFINE MODIFIERS ETC
 	// IN THE SETUPMODCHART FUNCTION
-	public var useModchart:Bool = false;
+	public var useModchart:Bool = true;
 
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
@@ -389,6 +389,10 @@ class PlayState extends MusicBeatState
 	var pebles:FlxSprite;
 	var warning:FlxSprite;
 	var dodgething:FlxSprite;
+	// exe shit
+	var vgblack:FlxSprite;
+	var heatlhDrop:Float = 0;
+	var tentas:FlxSprite;
 	// Preload vars so no null obj ref
 	var daNoteStatic:FlxSprite;
 	var preloaded:Bool = false;
@@ -442,6 +446,28 @@ class PlayState extends MusicBeatState
 	var slashBgPov:BGSprite;
 	var slashFloorPov:BGSprite;
 	var slashLavaPov:FlxSprite;
+	//curse shit (just admit it!!!!)
+	var hexTimer:Float = 0;
+	var hexes:Float = 0;
+	var fucklesSetHealth:Float = 0;
+	var barbedWires:FlxTypedGroup<WireSprite>;
+	var wireVignette:FlxSprite;
+	//the fucking actual assets
+	var curseStatic:FlxSprite;
+	var curseFloor:FlxSprite;
+	var curseSky:FlxSprite;
+	var curseTrees:FlxSprite;
+	var curseTreesTwo:FlxSprite;
+	var curseFountain:FlxSprite;
+	//hjog shit dlskafj;lsa
+	var hogBg:BGSprite;
+	var hogMotain:BGSprite;
+	var hogWaterFalls:FlxSprite;
+	var hogFloor:FlxSprite;
+	var hogLoops:FlxSprite;
+	var hogTrees:BGSprite;
+	var hogRocks:BGSprite;
+	var hogOverlay:BGSprite;
 	// normal shit
 	private var metalTrail:FlxTrail;
 	private var amyTrail:FlxTrail;
@@ -458,22 +484,6 @@ class PlayState extends MusicBeatState
 
 	public var normalCharShit:Int;
 	public var normalBool:Bool = false;
-	//curse shit lololololol
-	var curseStatic:FlxSprite;
-	var hexTimer:Float = 0;
-	var hexes:Float = 0;
-	var fucklesSetHealth:Float = 0;
-	var barbedWires:FlxTypedGroup<WireSprite>;
-	var wireVignette:FlxSprite;
-	//hjog shit dlskafj;lsa
-	var hogBg:BGSprite;
-	var hogMotain:BGSprite;
-	var hogWaterFalls:FlxSprite;
-	var hogFloor:FlxSprite;
-	var hogLoops:FlxSprite;
-	var hogTrees:BGSprite;
-	var hogRocks:BGSprite;
-	var hogOverlay:BGSprite;
 	//satanos stage shit
 	var satBackground:BGSprite;
 	var satFloor:BGSprite;
@@ -1028,7 +1038,7 @@ class PlayState extends MusicBeatState
 
             case 'fakerStage': // lmao
 			
-				defaultCamZoom = 0.95;
+				defaultCamZoom = .95;
 
 				var sky:FlxSprite = new FlxSprite(-631.8, -493.15).loadGraphic(Paths.image('fakerBG/sky'));
 				sky.antialiasing = true;
@@ -1109,7 +1119,61 @@ class PlayState extends MusicBeatState
 				flower2.scale.x = .9;
 				flower2.scale.y = .9;
 				add(flower2);
-			
+			case 'exeStage': // if this doesn't work i swear i will beat krillin to death /j
+			{
+				defaultCamZoom = 0.9;
+
+				var sSKY:FlxSprite = new FlxSprite(-414, -240.8).loadGraphic(Paths.image('exeBg/sky'));
+				sSKY.antialiasing = true;
+				sSKY.scrollFactor.set(1, 1);
+				sSKY.active = false;
+				sSKY.scale.x = 1.2;
+				sSKY.scale.y = 1.2;
+				add(sSKY);
+
+				var trees:FlxSprite = new FlxSprite(-290.55, -298.3).loadGraphic(Paths.image('exeBg/backtrees'));
+				trees.antialiasing = true;
+				trees.scrollFactor.set(1.1, 1);
+				trees.active = false;
+				trees.scale.x = 1.2;
+				trees.scale.y = 1.2;
+				add(trees);
+
+				var bg2:FlxSprite = new FlxSprite(-306, -334.65).loadGraphic(Paths.image('exeBg/trees'));
+				bg2.updateHitbox();
+				bg2.antialiasing = true;
+				bg2.scrollFactor.set(1.2, 1);
+				bg2.active = false;
+				bg2.scale.x = 1.2;
+				bg2.scale.y = 1.2;
+				add(bg2);
+
+				var bg:FlxSprite = new FlxSprite(-309.95, -240.2).loadGraphic(Paths.image('exeBg/ground'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(1.3, 1);
+				bg.active = false;
+				bg.scale.x = 1.2;
+				bg.scale.y = 1.2;
+				add(bg);
+
+				var treething:FlxSprite = new FlxSprite(-409.95, -340.2);
+				treething.frames = Paths.getSparrowAtlas('exeBg/ExeAnimatedBG_Assets');
+				treething.animation.addByPrefix('a', 'ExeBGAnim', 24, true);
+				treething.antialiasing = true;
+				treething.scrollFactor.set(1, 1);
+				add(treething);
+
+				var tails:FlxSprite = new FlxSprite(700, 500).loadGraphic(Paths.image('exeBg/TailsCorpse'));
+				tails.antialiasing = true;
+				tails.scrollFactor.set(1, 1);
+				add(tails);
+
+				if (FlxG.save.data.distractions)
+				{
+					treething.animation.play('a', true);
+				}
+			}
+
 			case 'needle':
 				/**
 								READ HOODRATS YOU MONGALOIDS
@@ -1479,7 +1543,6 @@ class PlayState extends MusicBeatState
 
 				add(slashLavaPov);
 				add(slashFloorPov);
-
 			case 'founded':
 				defaultCamZoom = 0.95;
 
@@ -1546,20 +1609,58 @@ class PlayState extends MusicBeatState
 				normalFg.scrollFactor.set(1.1, 1);
 				normalFg.antialiasing = true;
 				normalFg.scale.set(1.2, 1.2);
-
-			case 'curse':
+            case 'curse':
 				//THE CURSE OF X SEETHES AND MALDS
+
+				defaultCamZoom = 0.60;
+
+				curseSky = new FlxSprite(-300, -150);
+				curseSky.loadGraphic(Paths.image('curse/background', 'exe'));
+				curseSky.scrollFactor.set(1, 1);
+				curseSky.antialiasing = true;
+				curseSky.scale.set(1.5, 1.5);
+				add(curseSky);
+
+				curseTrees = new FlxSprite(-300, -150);
+				curseTrees.loadGraphic(Paths.image('curse/treesfarback', 'exe'));
+				curseTrees.scrollFactor.set(1, 1);
+				curseTrees.antialiasing = true;
+				curseTrees.scale.set(1.5, 1.5);
+				add(curseTrees);
+
+				curseTreesTwo = new FlxSprite(-300, -150);
+				curseTreesTwo.loadGraphic(Paths.image('curse/treesback', 'exe'));
+				curseTreesTwo.scrollFactor.set(1, 1);
+				curseTreesTwo.antialiasing = true;
+				curseTreesTwo.scale.set(1.5, 1.5);
+				add(curseTreesTwo);
+
+				curseFountain = new FlxSprite(350, 0);
+				curseFountain.frames = Paths.getSparrowAtlas('curse/goofyahfountain', 'exe');
+				curseFountain.animation.addByPrefix('fotan', "fountainlol", 24, true);
+				curseFountain.animation.play('fotan');
+				curseFountain.scale.x = 1.4;
+				curseFountain.scale.y = 1.4;
+				add(curseFountain);
+
+				curseFloor = new FlxSprite(-250, 700);
+				curseFloor.loadGraphic(Paths.image('curse/floor', 'exe'));
+				curseFloor.scrollFactor.set(1, 1);
+				curseFloor.antialiasing = true;
+				curseFloor.scale.set(1.5, 1.5);
+				add(curseFloor);
+
 				curseStatic = new FlxSprite(0, 0);
-				curseStatic.frames = Paths.getSparrowAtlas('curse/staticCurse');
+				curseStatic.frames = Paths.getSparrowAtlas('curse/staticCurse', 'exe');
 				curseStatic.animation.addByPrefix('stat', "menuSTATICNEW instance 1", 24, true);
 				curseStatic.animation.play('stat');
-				curseStatic.alpha = 0.5;
+				curseStatic.alpha = 0.25;
 				curseStatic.screenCenter();
-				curseStatic.scale.x = 2;
-				curseStatic.scale.y = 2;
+				curseStatic.scale.x = 4;
+				curseStatic.scale.y = 4;
 				curseStatic.visible = false;
+				//curseStatic.blend = LIGHTEN;
 				add(curseStatic);
-
 			case 'xterion':
 				defaultCamZoom = 0.85;
 
@@ -1811,27 +1912,11 @@ class PlayState extends MusicBeatState
 			case 'endless-forest':
 				gfGroup.visible = false;
 
-				var vcr:CRTShader;
-				vcr = new CRTShader();
-
 				var ok:BGSprite= new BGSprite('FunInfiniteStage', -600, -200, 1.1, 0.9);
                 ok.scale.x = 1.25;
                 ok.scale.y = 1.25;
 				ok.blend = LIGHTEN;
 				add(ok);
-
-				var daStatic:BGSprite = new BGSprite('daSTAT', 0, 0, 1.0, 1.0, ['staticFLASH'], true);
-				daStatic.cameras = [camHUD];
-				daStatic.setGraphicSize(FlxG.width, FlxG.height);
-				daStatic.screenCenter();
-				daStatic.alpha = 0.05;
-				add(daStatic);
-
-				curShader = new ShaderFilter(vcr);
-
-				camGame.setFilters([curShader]);
-				camHUD.setFilters([curShader]);
-				camOther.setFilters([curShader]);
 
 				add(fgmajin);
 				add(fgmajin2);
@@ -1865,7 +1950,7 @@ class PlayState extends MusicBeatState
 			case 'fakerStage':
 				gfGroup.scrollFactor.set(1.24, 1);
 
-			case 'EXEStage':
+			case 'exeStage':
 				gfGroup.scrollFactor.set(1.24, 1);
 
 			case 'hog':
@@ -1878,7 +1963,25 @@ class PlayState extends MusicBeatState
 			    gfGroup.visible = false;
 				add(Box_Educator);
 
-			case 'xterion' | 'starved-pixel' | 'starved' | 'chamber' | 'sanicStage' | 'void' | 'satanos' | 'fatality' | 'cycles-hills':
+			case 'xterion':
+				gfGroup.visible = false;
+				var vcr:CRTShader;
+				vcr = new CRTShader();
+
+				var daStatic:BGSprite = new BGSprite('daSTAT', 0, 0, 1.0, 1.0, ['staticFLASH'], true);
+				daStatic.cameras = [camHUD];
+				daStatic.setGraphicSize(FlxG.width, FlxG.height);
+				daStatic.screenCenter();
+				daStatic.alpha = 0.05;
+				add(daStatic);
+
+				curShader = new ShaderFilter(vcr);
+
+				camGame.setFilters([curShader]);
+				camHUD.setFilters([curShader]);
+				camOther.setFilters([curShader]);
+				
+			case 'starved-pixel' | 'starved' | 'chamber' | 'sanicStage' | 'void' | 'satanos' | 'fatality' | 'cycles-hills':
 				gfGroup.visible = false;
 			}
 		trace(boyfriendGroup);
@@ -1959,6 +2062,11 @@ class PlayState extends MusicBeatState
 				dad.x += 59.85;
 	
 				gf.y -= 150;
+			case 'exeStage':
+				boyfriend.x += 300;
+				boyfriend.y += 100;
+				gf.x += 430;
+				gf.y += 170;
 			case 'cycles-hills':
 				dad.x -= 120;
 				dad.y -= 50;
@@ -2151,6 +2259,19 @@ class PlayState extends MusicBeatState
 		if (curSong.toLowerCase() == 'chaos')
 		{
 			FlxG.camera.follow(camFollowPos, LOCKON, 0.06 * (30 / (cast(Lib.current.getChildAt(0), Main)).getFPS()));
+		}
+		if (curSong.toLowerCase() == 'black-sun')
+		{
+			vgblack = new FlxSprite().loadGraphic(Paths.image('black_vignette', 'exe'));
+			tentas = new FlxSprite().loadGraphic(Paths.image('tentacles_black', 'exe'));
+			tentas.alpha = 0;
+			vgblack.alpha = 0;
+			vgblack.cameras = [camHUD];
+			tentas.cameras = [camHUD];
+			add(vgblack);
+			add(tentas);
+			health = 2;
+         // FlxG.camera.follow(camFollow, LOCKON, 0.09 * (30 / (cast(Lib.current.getChildAt(0), Main)).getFPS()));
 		}
 
 		FlxG.camera.follow(camFollowPos, LOCKON, 1);
@@ -3004,7 +3125,7 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 
-		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " ][storyDifficulty];
+		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - " + curSong + [ "[EASY]" , " [NORMAL] " ," [HARD] " , " [ENCORE] " ][storyDifficulty];
 		#if desktop
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, songRPC + " (" + storyDifficultyText + ")", iconP2.getCharacter());
@@ -3772,6 +3893,10 @@ class PlayState extends MusicBeatState
 								if(noteStep>=900){
 									songNotes[3] = 'Majin Note';
 								}
+							case 'endless-encore':
+							    if(noteStep>=796){
+									songNotes[3] = 'Majin Note';
+								}
 							case 'you-cant-run':
 								if(noteStep > 528 && noteStep < 784){
 									songNotes[3] = 'Pixel Note';
@@ -4440,9 +4565,26 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if (dad.curCharacter == 'hog' && dad.animation.curAnim.curFrame == 38 && !dodging)
+		{
+			health = 0;
+		}
 		if (dad.curCharacter == 'fleetwaylaser' && dad.animation.curAnim.curFrame == 15 && !dodging)
 		{
 			health = 0;
+		}
+		if(curSong == 'black-sun'){
+			var ccap;
+
+			ccap = combo;
+			if (combo > 40)
+				ccap = 40;
+
+			heatlhDrop = 0.0000001; // this is the default drain, imma just add a 0 to it :troll:.
+			health -= heatlhDrop * (500 / ((ccap + 1) / 8) * ((songMisses +
+				1) / 1.9)); // alright so this is the code for the healthdrain, also i did + 1 cus i you were to multiply with 0.... yea
+			vgblack.alpha = 1 - (health / 2);
+			tentas.alpha = 1 - (health / 2);
 		}
 
 		var targetHP:Float = health;
@@ -6621,13 +6763,12 @@ class PlayState extends MusicBeatState
 			});
 		}
 
-		/* if (combo > 60)
+		if (combo > 60)
 			daRating = 'sick';
 		else if (combo > 12)
 			daRating = 'good'
 		else if (combo > 4)
 			daRating = 'bad';
-	 */
 
 		var pixelShitPart1:String = "";
 		var pixelShitPart2:String = '';
@@ -6719,10 +6860,10 @@ class PlayState extends MusicBeatState
 
 			daLoop++;
 		}
-		/*
+		
 		trace(combo);
 		trace(seperatedScore);
-	 */
+	
 
 		coolText.text = Std.string(seperatedScore);
 		// add(coolText);
@@ -7574,6 +7715,31 @@ class PlayState extends MusicBeatState
 					timeBar.createFilledBar(0xFF000000, 0xFF5f41a1);
 					timeBar.updateBar();
 				case 886:
+					FlxTween.tween(camHUD, {alpha: 0}, 0.5);
+
+				case 900:
+					removeStatics();
+					generateStaticArrows(0);
+					generateStaticArrows(1);
+					FlxTween.tween(camHUD, {alpha: 1}, 0.5);
+			}
+		}
+		if(curSong == 'endless-encore'){
+			switch(curStep){
+				case 1:
+					timeBar.createFilledBar(0xFF000000, 0xFF5D3F9C);
+					timeBar.updateBar();
+				case 252:
+					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 0.7);
+					cinematicBars(true);
+					defaultCamZoom = 1.0;
+				case 267:
+					FlxTween.tween(camHUD, {alpha: 0}, 0.7);
+					cinematicBars(false);
+					FlxTween.tween(FlxG.camera, {zoom: 0.6}, 1.4);
+					defaultCamZoom = 0.9;
+					FlxTween.tween(camHUD, {alpha: 1}, 1.4);
+				case 784:
 					FlxTween.tween(camHUD, {alpha: 0}, 0.5);
 
 				case 900:
@@ -8550,6 +8716,7 @@ class PlayState extends MusicBeatState
 							revivedIsPissed(2);
 					}
 				}	
+				
 			if (SONG.song.toLowerCase() == 'malediction')
 			{
 				switch (curStep)
@@ -8589,38 +8756,38 @@ class PlayState extends MusicBeatState
 		}, 50);
 	}
 
-		function chaotixGlass(ass:Int)
+	function chaotixGlass(ass:Int)
+	{
+		switch (ass)
+			{
+				case 1:
+					normalTrail = new FlxTrail(dad, null, 2, 12, 0.20, 0.05);
+					add(normalTrail);
+					soulGlassTime = true;
+				case 2:
+					metalTrail = new FlxTrail(boyfriend, null, 2, 12, 0.20, 0.05);
+					add(metalTrail);
+				case 3:
+					amyTrail = new FlxTrail(gf, null, 2, 12, 0.20, 0.05);
+					add(amyTrail);
+			}
+	}
+
+	function revivedIsPissed(ass:Int)
+	{
 		{
 			switch (ass)
 				{
 					case 1:
-						normalTrail = new FlxTrail(dad, null, 2, 12, 0.20, 0.05);
-						add(normalTrail);
-						soulGlassTime = true;
+						soulGlassTime = false;
+						remove(normalTrail);
 					case 2:
-						metalTrail = new FlxTrail(boyfriend, null, 2, 12, 0.20, 0.05);
-						add(metalTrail);
+						remove(metalTrail);
 					case 3:
-						amyTrail = new FlxTrail(gf, null, 2, 12, 0.20, 0.05);
-						add(amyTrail);
+							remove(amyTrail);
 				}
 		}
-
-	function revivedIsPissed(ass:Int)
-		{
-			{
-				switch (ass)
-					{
-						case 1:
-							soulGlassTime = false;
-							remove(normalTrail);
-						case 2:
-							remove(metalTrail);
-						case 3:
-							remove(amyTrail);
-					}
-			}
-		}
+	}
 
 	function literallyMyHorizon()
 		{

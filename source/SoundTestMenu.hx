@@ -239,6 +239,37 @@ class SoundTestMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new PlayState());
 				});
 			}
+		else if (first == 31 && second == 13)
+			{
+				woahmanstopspammin = false;
+				PlayStateChangeables.nocheese = false;
+				PlayState.storyPlaylist = ['Faker', 'Black sun'];
+				PlayState.SONG = Song.loadFromJson('faker-hard', 'faker');
+				PlayState.isStoryMode = true;
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				flashyWashy(true);
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					LoadingState.loadAndSwitchState(new PlayState());
+				});
+			}
+		else if (first == 2 && second == 2)
+			{
+				woahmanstopspammin = false;
+				PlayStateChangeables.nocheese = false;
+				PlayState.isStoryMode = true;
+				PlayState.storyPlaylist = ['Prey', 'Fight or Flight'];
+				PlayState.SONG = Song.loadFromJson('Prey-hard', 'Prey');
+				PlayState.isStoryMode = false;
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				flashyWashy(true);
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					LoadingState.loadAndSwitchState(new PlayState());
+				});
+			}	
 		else if (first == 4 && second == 20)
 			{
 				woahmanstopspammin = false;

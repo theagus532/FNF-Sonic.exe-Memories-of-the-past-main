@@ -58,7 +58,7 @@
 		}
 	],
 	"no_antialiasing": true,
-	"image": "characters/Prey_Assets/Sonic_Death_Assets",
+	"image": "characters/Prey_Assets/Sonic_Gameover_Assets",
 	"position": [
 		200,
 		350

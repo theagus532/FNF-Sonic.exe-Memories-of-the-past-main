@@ -1,5 +1,5 @@
 function start (song)
-	print("Song: " .. song .. " @ " .. bpm .. " downscroll: " .. downscroll)
+	print("too-slow: " .. song .. " @ " .. bpm .. " downscroll: " .. downscroll)
 
 end
 
