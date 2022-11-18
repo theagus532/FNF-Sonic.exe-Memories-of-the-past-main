@@ -1,114 +1,114 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Majin_IDLE"
+			"fps": 24,
+			"name": "Majin_IDLE",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				135,
 				-83
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Majin_LEFT0"
+			"fps": 24,
+			"name": "Majin_LEFT0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-56,
 				-212
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Majin_DOWN0"
+			"fps": 24,
+			"name": "Majin_DOWN0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-62,
 				-158
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Majin_RIGHT0"
+			"fps": 24,
+			"name": "Majin_RIGHT0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				139,
 				60
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Majin_UP0"
+			"fps": 24,
+			"name": "Majin_UP0",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				170,
 				-190
 			],
-			"anim": "singLEFT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Majin_LEFTalt",
-			"indices": []
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "Majin_LEFTalt"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				7,
 				-209
 			],
-			"anim": "singDOWN-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Majin_DOWNalt",
-			"indices": []
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "Majin_DOWNalt"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				40,
 				120
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Majin_UPalt",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "Majin_UPalt"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-63,
 				-136
 			],
-			"anim": "singRIGHT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "Majin_RIGHTalt",
-			"indices": []
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "Majin_RIGHTalt"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				38,
 				20
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "taunt",
-			"indices": [],
-			"name": "Majin_TAUNT"
+			"fps": 24,
+			"name": "Majin_TAUNT",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -125,7 +125,7 @@
 		215
 	],
 	"camera_position": [
-		100,
+		-20,
 		120
 	],
 	"sing_duration": 6.1,

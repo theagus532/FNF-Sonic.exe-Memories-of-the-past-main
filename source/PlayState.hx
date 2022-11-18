@@ -86,7 +86,7 @@ typedef BasicSpeedChange = {
 
 class PlayState extends MusicBeatState
 {
-	var modchartedSongs:Array<String> = ['too-slow', 'perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
+	var modchartedSongs:Array<String> = ['perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
 
 	// THEN GOTO MODCHARTSHIT.HX TO DEFINE MODIFIERS ETC
 	// IN THE SETUPMODCHART FUNCTION
@@ -468,6 +468,16 @@ class PlayState extends MusicBeatState
 	var hogTrees:BGSprite;
 	var hogRocks:BGSprite;
 	var hogOverlay:BGSprite;
+    //scorched shit
+	var hogBg2:BGSprite;
+	var hogMotain2:BGSprite;
+	var hogWaterFalls2:FlxSprite;
+	var hogFloor2:FlxSprite;
+	var hogLoops2:FlxSprite;
+	var hogMonitor:FlxSprite;
+	var hogTrees2:BGSprite;
+	var hogRocks2:BGSprite;
+	var blackFuck4:FlxSprite;
 	// normal shit
 	private var metalTrail:FlxTrail;
 	private var amyTrail:FlxTrail;
@@ -1830,6 +1840,63 @@ class PlayState extends MusicBeatState
                 hogOverlay.scale.x = 1.25;
                 hogOverlay.scale.y = 1.25;
 
+				//SCORCHED SHIT YAHOOOO.
+
+				hogBg2 = new BGSprite('hog/blast/Sunset', 0, 0, 1.1, 0.9);
+                hogBg2.scale.x = 2.0;
+                hogBg2.scale.y = 2.0;
+				hogBg2.alpha = 0;
+                add(hogBg2);
+
+				hogMotain2 = new BGSprite('hog/blast/Mountains', 0, 0, 1.1, 0.9);
+                hogMotain2.scale.x = 1.5;
+                hogMotain2.scale.y = 1.5;
+				hogMotain2.alpha = 0;
+                add(hogMotain2);
+
+				hogWaterFalls2 = new FlxSprite(-1100, 200);
+                hogWaterFalls2.frames = Paths.getSparrowAtlas('hog/blast/Waterfalls');
+                hogWaterFalls2.animation.addByPrefix('water', 'British', 12);
+                hogWaterFalls2.animation.play('water');
+                hogWaterFalls2.scrollFactor.set(1, 1);
+				hogWaterFalls2.alpha = 0;
+                add(hogWaterFalls2);
+
+				hogLoops2 = new FlxSprite(-300, 150).loadGraphic(Paths.image('hog/blast/Hills'));
+				hogLoops2.scrollFactor.set(1, 0.9);
+				hogLoops2.scale.x = 1.1;
+				hogLoops2.scale.y = 1.1;
+				hogLoops2.alpha = 0;
+                add(hogLoops2);
+
+                hogMonitor = new FlxSprite(hogLoops2.x + 500, hogLoops2.y + 300);
+                hogMonitor.frames = Paths.getSparrowAtlas('hog/Monitor');
+                hogMonitor.animation.addByPrefix('loops', 'fatalerror', 12);
+                hogMonitor.animation.play('loops');
+                hogMonitor.scrollFactor.set(1, 0.9);
+				hogMonitor.alpha = 0;
+                add(hogMonitor);
+
+				hogTrees2 = new BGSprite('hog/blast/Plants', -600, -120, 1, 0.9);
+				hogTrees2.alpha = 0;
+                add(hogTrees2);
+
+				hogFloor2 = new BGSprite('hog/blast/Floor', -600, 750, 1.1, 0.9);
+                hogFloor2.scale.x = 1.25;
+                hogFloor2.scale.y = 1.25;
+				hogFloor2.alpha = 0;
+                add(hogFloor2);
+
+				hogRocks2 = new BGSprite('hog/blast/Rocks', -500, 600, 1.1, 0.9);
+                hogRocks2.scale.x = 1.25;
+                hogRocks2.scale.y = 1.25;
+				hogRocks2.alpha = 0;
+
+				blackFuck4 = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
+			    blackFuck4.cameras = [camOther];
+				blackFuck4.alpha = 0;
+				add(blackFuck4);
+
 			case 'requital':
 				//lol lmao
 			case 'requite':
@@ -2262,6 +2329,7 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'black-sun')
 		{
+			opponentStrums.visible = false;
 			vgblack = new FlxSprite().loadGraphic(Paths.image('black_vignette', 'exe'));
 			tentas = new FlxSprite().loadGraphic(Paths.image('tentacles_black', 'exe'));
 			tentas.alpha = 0;
@@ -3893,10 +3961,6 @@ class PlayState extends MusicBeatState
 								if(noteStep>=900){
 									songNotes[3] = 'Majin Note';
 								}
-							case 'endless-encore':
-							    if(noteStep>=796){
-									songNotes[3] = 'Majin Note';
-								}
 							case 'you-cant-run':
 								if(noteStep > 528 && noteStep < 784){
 									songNotes[3] = 'Pixel Note';
@@ -4140,6 +4204,7 @@ class PlayState extends MusicBeatState
 				skin = 'week6';
 
 			if(SONG.song.toLowerCase()=='endless' && curStep>=900)skin='Majin_Notes';
+			if(SONG.song.toLowerCase()=='endless-encore' && curStep>=796)skin='Majin_Notes';
 
 			var babyArrow:StrumNote = new StrumNote(0, strumLine.y, i, player, skin);
 
@@ -4885,6 +4950,8 @@ class PlayState extends MusicBeatState
 							startSong();
 						case 'endless':
 							startSong();
+						case 'endless-encore':
+							startSong();
 						default:
 							startSong();
 					}
@@ -4927,6 +4994,10 @@ class PlayState extends MusicBeatState
 						secondsRemaining = '0' + secondsRemaining; // Dunno how to make it display a zero first in Haxe lol
 
 					if(SONG.song.toLowerCase()=='endless' && curStep>=898){
+						songPercent=0;
+						timeTxt.text = 'Infinity';
+					}
+					if(SONG.song.toLowerCase()=='endless-encore' && curStep>=794){
 						songPercent=0;
 						timeTxt.text = 'Infinity';
 					}else
@@ -7637,6 +7708,7 @@ class PlayState extends MusicBeatState
 					var oldbfx = boyfriend.x - 10;
 					var oldbfy = boyfriend.y - 225;
 					boyfriend = new Boyfriend(oldbfx, oldbfy, 'bf-super');
+					iconP1.changeIcon(boyfriend.healthIcon);
 					boyfriendGroup.add(boyfriend);
 
 					FlxG.camera.shake(0.02, 0.2);
@@ -7729,20 +7801,23 @@ class PlayState extends MusicBeatState
 				case 1:
 					timeBar.createFilledBar(0xFF000000, 0xFF5D3F9C);
 					timeBar.updateBar();
+				case 10:
+					FlxG.camera.flash(FlxColor.WHITE, 3);
 				case 252:
-					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 0.7);
 					cinematicBars(true);
-					defaultCamZoom = 1.0;
-				case 267:
-					FlxTween.tween(camHUD, {alpha: 0}, 0.7);
-					cinematicBars(false);
 					FlxTween.tween(FlxG.camera, {zoom: 0.6}, 1.4);
 					defaultCamZoom = 0.9;
-					FlxTween.tween(camHUD, {alpha: 1}, 1.4);
+			    case 267:
+					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 0.7);
+					cinematicBars(false);
+					defaultCamZoom = 1.0;
+				case 528:
+					FlxTween.tween(FlxG.camera, {zoom: 0.6}, 10.5);
+					defaultCamZoom = 0.9;
 				case 784:
-					FlxTween.tween(camHUD, {alpha: 0}, 0.5);
-
-				case 900:
+				//	FlxTween.tween(camHUD, {alpha: 0}, 0.5); --I don't know later I'll try to fix it.
+				case 796:
+					FlxG.camera.flash(FlxColor.WHITE, 3);
 					removeStatics();
 					generateStaticArrows(0);
 					generateStaticArrows(1);
@@ -8502,6 +8577,9 @@ class PlayState extends MusicBeatState
 				{
 					switch (curStep)
 						{
+							case 1:
+								timeBar.createFilledBar(0x002C27B5, 0xFF2C27B5);
+								timeBar.updateBar();
 							case 1264:
 								var warning:FlxSprite = new FlxSprite(boyfriend.x - 25, boyfriend.y - 30);
 								warning.frames = Paths.getSparrowAtlas("hog/TargetLock");
@@ -8537,6 +8615,95 @@ class PlayState extends MusicBeatState
 						}
 
 				}
+			if (SONG.song.toLowerCase() == 'manual-blast')
+				{
+					switch (curStep)
+						{
+							case 1:
+								timeBar.createFilledBar(0x002C27B5, 0xFF2C27B5);
+								timeBar.updateBar();
+							case 208, 296:
+								var warning:FlxSprite = new FlxSprite(boyfriend.x - 25, boyfriend.y - 30);
+								warning.frames = Paths.getSparrowAtlas("hog/TargetLock");
+								warning.animation.addByPrefix('warn', 'TargetLock', 24, false);
+								warning.alpha = 0;
+								add(warning);
+									
+	
+								new FlxTimer().start(0.8, function(lol:FlxTimer)
+									{
+										FlxTween.tween(warning, {alpha: 1}, 0.5);
+										warning.animation.play("warn", true);
+										warning.animation.finishCallback = function(warn:String)
+											{
+												remove(warning);
+												warning.destroy();
+												}
+	
+										});
+	
+								canDodge = true;
+								dad.playAnim("getfuckedlol", true);
+								dad.specialAnim = true;
+								dad.animation.finishCallback = function(getfuckedlol:String)
+								{
+									dad.specialAnim = false;
+								}
+								new FlxTimer().start(0, function(lol:FlxTimer)
+								{
+									if (dad.animation.curAnim.curFrame == 38 && !dodging) 
+										health = 0;
+									boyfriend.animation.finishCallback=null;
+								});
+							case 215, 219, 222, 304, 307, 310:
+								//SPIIIIIIIIN
+								festSpinFull();
+							case 512:
+								FlxTween.tween(camHUD, {alpha: 0}, 1);
+								FlxTween.tween(blackFuck4, {alpha: 1}, 1);
+								FlxTween.tween(wireVignette, {alpha: 1}, 24);
+								FlxTween.tween(FlxG.camera, {zoom: 0.8}, 24);
+								defaultCamZoom = 0.8;
+							case 576, 580, 640, 646, 672, 677, 704, 735, 741, 768, 773, 800, 805, 832, 838:
+								FlxTween.tween(blackFuck4, {alpha: 0}, 0.1);
+							case 578, 582, 642, 648, 674, 679, 706, 711, 737, 743, 770, 775, 802, 807, 834, 840:
+								FlxTween.tween(blackFuck4, {alpha: 1}, 0.1);
+							case 709:
+								timeBar.createFilledBar(0x00142953, 0xFF142953);
+								timeBar.updateBar();
+
+								FlxTween.tween(blackFuck4, {alpha: 0}, 0.1);
+								hogBg.visible = false;
+								hogMotain.visible = false;
+								hogWaterFalls.visible = false;
+								hogFloor.visible = false;
+								hogLoops.visible = false;
+								hogTrees.visible = false;
+								hogRocks.visible = false;
+								hogOverlay.visible = false;
+
+							case 760:
+								opponentStrums.forEach(function(spr:FlxSprite)
+									{
+										spr.x += 5000;
+									});
+						    case 848:
+								FlxTween.tween(blackFuck4, {alpha: 0}, 1);
+								FlxTween.tween(FlxG.camera, {zoom: 0.68}, 1);
+								defaultCamZoom = 0.68;
+								hogChangingShit();
+							case 864:
+								FlxTween.tween(camHUD, {alpha: 1}, 0.2);
+								
+								shakescreen();
+								IsWindowMoving = true;
+								IsWindowMoving2 = true;
+								Yamount += 3;
+								Xamount += 3;
+								camGame.shake(0.02, 2);
+								camHUD.shake(0.02, 2);
+								}
+					}		
 				
 			if (SONG.song.toLowerCase() == 'too-fest')
 				{
@@ -8868,6 +9035,19 @@ class PlayState extends MusicBeatState
 					});
 				}
 		}
+
+		function hogChangingShit()
+			{
+
+				hogBg2.alpha = 1;
+				hogMotain2.alpha = 1;
+				hogWaterFalls2.alpha = 1;
+				hogFloor2.alpha = 1;
+				hogLoops2.alpha = 1;
+				hogMonitor.alpha = 1;
+				hogTrees2.alpha = 1;
+				hogRocks2.alpha = 1;
+			}
 
 	function festSpinPlayer()
 		{

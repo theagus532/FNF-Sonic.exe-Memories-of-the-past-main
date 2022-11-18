@@ -21,8 +21,7 @@ class CoolUtil
 	public static var difficultyStuff:Array<Dynamic> = [
 		['Easy', '-easy'],
 		['Normal', ''],
-		['Hard', '-hard'],
-		['Encore', '-encore']
+		['Hard', '-hard']
 	];
 	public static inline function GetPlayer(note:Note) // schmovin
 	{

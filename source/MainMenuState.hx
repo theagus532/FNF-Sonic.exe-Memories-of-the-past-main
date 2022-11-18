@@ -15,7 +15,6 @@ import editors.MasterEditorMenu;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
-import openfl.Lib;
 
 #if windows
 import Discord.DiscordClient;
@@ -75,7 +74,6 @@ class MainMenuState extends MusicBeatState
 		}*/
 
 
-		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Main Menu";
 		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -279,8 +277,6 @@ class MainMenuState extends MusicBeatState
 						{
 							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 							{
-								Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past";
-
 								var daChoice:String = optionShit[curSelected];
 
 								switch (daChoice)
@@ -318,7 +314,7 @@ class MainMenuState extends MusicBeatState
 				MusicBeatState.switchState(new FreeplayState());
 				//changeItem(1);
 			}
-			if (FlxG.keys.justPressed.NINE)
+			if (FlxG.keys.justPressed.EIGHT)
 			{
 				MusicBeatState.switchState(new SoundTestMenu());
 				//changeItem(1);

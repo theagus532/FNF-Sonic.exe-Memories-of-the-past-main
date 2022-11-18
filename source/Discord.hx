@@ -1,8 +1,10 @@
-#if desktop
 package;
+
+#if desktop
 
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
+
 
 #if LUA_ALLOWED
 import llua.Lua;
@@ -44,8 +46,8 @@ class DiscordClient
 		DiscordRpc.presence({
 			details: "In the Menus",
 			state: null,
-			largeImageKey: 'logo',
-			largeImageText: "Psych Engine"
+			largeImageKey: 'icon',
+			largeImageText: "Vs Sonic.exe' Memories Of The Past"
 		});
 	}
 
@@ -80,7 +82,7 @@ class DiscordClient
 		DiscordRpc.presence({
 			details: details,
 			state: state,
-			largeImageKey: 'icon',
+			largeImageKey: 'Logo Omg',
 			largeImageText: "Engine Version: " + MainMenuState.psychEngineVersion,
 			smallImageKey : smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it

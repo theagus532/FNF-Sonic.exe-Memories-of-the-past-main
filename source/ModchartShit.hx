@@ -6,8 +6,6 @@ import flixel.math.FlxAngle;
 class ModchartShit {
   public static function setupModchart(state:PlayState, modManager:ModManager, songName:String){
     switch(songName){
-      case 'too-slow':
-        //sex
       case 'perdition':
         //lmao
     }

@@ -32,6 +32,7 @@ import flixel.util.FlxColor;
 import haxe.Json;
 import haxe.format.JsonParser;
 import lime.utils.Assets;
+import openfl.Lib;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import openfl.media.Sound;
@@ -203,9 +204,10 @@ class ChartingState extends MusicBeatState
 
 	override function create()
 	{
+		Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Chart Editor";
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Chart Editor", 'spooky stuff :D');
+		DiscordClient.changePresence("Chart Editor", StringTools.replace(_song.song, '-', ' '));
 		#end
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));

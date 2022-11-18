@@ -1,7 +1,7 @@
 package;
 
 import flixel.ui.FlxBar;
-import Controls.Control;
+import Controls;
 import flixel.math.FlxMath;
 import Song.SwagSong;
 import flixel.FlxG;

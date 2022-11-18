@@ -14,6 +14,7 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
+import openfl.Lib;
 import flixel.FlxCamera;
 import openfl.filters.ShaderFilter;
 
@@ -57,6 +58,7 @@ class SoundTestMenu extends MusicBeatState
 			cam.bgColor.alpha = 0;
 			FlxCamera.defaultCameras = [cam];
 
+			Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Sound Test Menu";
 			#if desktop
 			DiscordClient.changePresence('In the Sound Test Menu', null);
 			#end
@@ -243,7 +245,7 @@ class SoundTestMenu extends MusicBeatState
 			{
 				woahmanstopspammin = false;
 				PlayStateChangeables.nocheese = false;
-				PlayState.storyPlaylist = ['Faker', 'Black sun'];
+				PlayState.storyPlaylist = ['faker', 'black-sun'];
 				PlayState.SONG = Song.loadFromJson('faker-hard', 'faker');
 				PlayState.isStoryMode = true;
 				FlxTransitionableState.skipNextTransIn = true;

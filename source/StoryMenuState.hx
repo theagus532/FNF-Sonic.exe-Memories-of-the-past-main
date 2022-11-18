@@ -87,9 +87,9 @@ class StoryMenuState extends MusicBeatState
 		switch (FlxG.save.data.storyProgress)
 		{
 			case 1:
-				songArray = ['too-slow', 'you-cant-run'];
+				songArray = ['too slow', 'you cant run'];
 			case 2:
-				songArray = ['too-slow', 'you-cant-run', 'triple-trouble'];
+				songArray = ['too slow', 'you cant run', 'triple trouble'];
 		}
 
 		//FlxG.sound.playMusic(Paths.music('storymodemenumusic'));
@@ -327,18 +327,18 @@ class StoryMenuState extends MusicBeatState
 						new FlxTimer().start(1, function(tmr:FlxTimer)
 							{
 								// LoadingState.loadAndSwitchState(new PlayState(), true); //save this code for the cutsceneless build of the game
-								var video:MP4Handler = new MP4Handler();
-								video.playVideo(Paths.video('tooslowcutscene1'));
-								video.finishCallback = function()
-								{
+								//var video:MP4Handler = new MP4Handler();
+							//	video.playVideo(Paths.video('tooslowcutscene1'));
+							//	video.finishCallback = function()
+								//{
 									LoadingState.loadAndSwitchState(new PlayState());
-								}
+								//}
 							});
 					}
 
 				else if (FlxG.save.data.storyProgress == 0)
 				{
-					PlayState.storyPlaylist = ['too-slow', 'you-cant-run', 'triple-trouble'];
+					PlayState.storyPlaylist = ['too slow', 'you cant run', 'triple trouble'];
 					PlayState.isStoryMode = true;
 
 
@@ -358,9 +358,9 @@ class StoryMenuState extends MusicBeatState
 					PlayState.isStoryMode = false;
 					LoadingState.loadAndSwitchState(new PlayState());
 				}
-				if (songArray[real] == 'you-cant-run')
+				if (songArray[real] == 'you cant run')
 				{
-					PlayState.storyPlaylist = ['you-cant-run', 'triple-trouble'];
+					PlayState.storyPlaylist = ['you cant run', 'triple trouble'];
 					PlayState.isStoryMode = true;
 					curDifficulty = '-hard';
 
@@ -370,16 +370,16 @@ class StoryMenuState extends MusicBeatState
 					PlayState.storyWeek = 1;
 				}
 
-				if (songArray[real] == 'too-slow')
+				if (songArray[real] == 'too slow')
 				{
 					new FlxTimer().start(1, function(tmr:FlxTimer)
 						{
-							// LoadingState.loadAndSwitchState(new PlayState(), true); //save this code for the cutsceneless build of the game
-							var video:MP4Handler = new MP4Handler();
-							video.playVideo(Paths.video('tooslowcutscene1'));
-							video.finishCallback = function()
+								// LoadingState.loadAndSwitchState(new PlayState(), true); //save this code for the cutsceneless build of the game
+								var video:MP4Handler = new MP4Handler();
+								video.playVideo(Paths.video('tooslowcutscene1'));
+								video.finishCallback = function()
 							{
-								LoadingState.loadAndSwitchState(new PlayState());
+							    LoadingState.loadAndSwitchState(new PlayState());
 							}
 						});
 				}

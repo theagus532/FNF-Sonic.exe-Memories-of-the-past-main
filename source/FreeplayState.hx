@@ -73,9 +73,14 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 		whiteshit = new FlxSprite().makeGraphic(1280, 720, FlxColor.WHITE);
 		whiteshit.alpha = 0;
 
-		bg = new FlxBackdrop(Paths.image('backgroundlool'), 1, 0, true, false);
+		bg = new FlxBackdrop(Paths.image('backgroundlool'), 0, 0, true, false);
+		bg.screenCenter(X);
 		bg.setGraphicSize(1280, 720);
 		add(bg);
+				
+		bg.offset.x -= 0;
+		bg.offset.y += 0;
+		bg.velocity.x = 20;
 
 		scrollingBg = new FlxBackdrop(Paths.image('sidebar'), 0, 1, false, true);
 		add(scrollingBg);
@@ -172,7 +177,7 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 		scoreText.x -= 20;
 		add(scoreText);
 
-		if (charUnlocked.contains(charArray[0])) charText = new FlxText(30 , 10, FlxG.width, "majin");
+		if (charUnlocked.contains(charArray[0])) charText = new FlxText(30 , 10, FlxG.width, "Majin");
 		else charText = new FlxText(30 , 10, FlxG.width, "???");
 		charText.setFormat("Sonic CD Menu Font Regular", 36, FlxColor.WHITE, CENTER);
 		charText.y -= 10;
@@ -207,9 +212,8 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 			textgrp.add(text);
 		}
 
-		 #if windows
-
 		 Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Freeplay";
+		 #if windows
 		 // Updating Discord Rich Presence
 		 DiscordClient.changePresence("In the Freeplay Menu", null);
 		 #end
@@ -220,8 +224,6 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 	}
 	override function update(elapsed:Float)
 	{
-
-		bg.x += 1;
 
 		scrollingBg.y += 1;
 

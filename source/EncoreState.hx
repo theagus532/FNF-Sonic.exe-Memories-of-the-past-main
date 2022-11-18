@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.display.FlxBackdrop;
 import flixel.util.FlxTimer;
 import flixel.input.gamepad.FlxGamepad;
 import flash.text.TextField;
@@ -15,6 +16,8 @@ import flixel.util.FlxColor;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
+import openfl.Lib;
+
 
 
 #if windows
@@ -33,7 +36,9 @@ class EncoreState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!!!
 
 	var boxgrp:FlxTypedSpriteGroup<FlxSprite>;
 
-	var bg:FlxSprite;
+	// menu shit.
+	var bg:FlxBackdrop;
+	var spikes:FlxBackdrop;
 
 	var cdman:Bool = true;
 
@@ -47,10 +52,23 @@ class EncoreState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!!!
 		whiteshit = new FlxSprite().makeGraphic(1280, 720, FlxColor.WHITE);
 		whiteshit.alpha = 0;
 
-		bg = new FlxSprite().loadGraphic(Paths.image('backgroundlool'));
-		bg.screenCenter();
+		bg = new FlxBackdrop(Paths.image('backgroundlool'), 0, 0, true, false);
+		bg.screenCenter(X);
 		bg.setGraphicSize(1280, 720);
 		add(bg);
+				
+		bg.offset.x -= 0;
+		bg.offset.y += 0;
+		bg.velocity.x = 20;
+
+		spikes = new FlxBackdrop(Paths.image('SPIKES2'), 0, 0, true, false);
+		spikes.screenCenter(X);
+		spikes.setGraphicSize(1280, 720);
+		add(spikes);
+				
+		spikes.offset.x -= 0;
+		spikes.offset.y += 0;
+		spikes.velocity.x = 20;
 
 		boxgrp = new FlxTypedSpriteGroup<FlxSprite>();
 
@@ -95,9 +113,10 @@ class EncoreState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!!!
 		
 		add(boxgrp);
 
+		 Lib.application.window.title = "Vs Sonic.exe' Memories Of The Past - Encore Menu";
 		 #if windows
 		 // Updating Discord Rich Presence
-		 DiscordClient.changePresence("In the Freeplay Menu", null);
+		 DiscordClient.changePresence("In the Encore Menu", null);
 		 #end
 
 		add(whiteshit);
