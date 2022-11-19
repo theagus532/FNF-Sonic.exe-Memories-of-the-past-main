@@ -2329,7 +2329,10 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'black-sun')
 		{
-			opponentStrums.visible = false;
+			opponentStrums.forEach(function(spr:FlxSprite)
+				{
+					spr.x += 5000;
+				});
 			vgblack = new FlxSprite().loadGraphic(Paths.image('black_vignette', 'exe'));
 			tentas = new FlxSprite().loadGraphic(Paths.image('tentacles_black', 'exe'));
 			tentas.alpha = 0;
@@ -5000,6 +5003,10 @@ class PlayState extends MusicBeatState
 					if(SONG.song.toLowerCase()=='endless-encore' && curStep>=794){
 						songPercent=0;
 						timeTxt.text = 'Infinity';
+					}
+					if(SONG.song.toLowerCase()=='ip' && curStep>=1){
+						songPercent=0;
+						timeTxt.text = '10.982.69.123';
 					}else
 						timeTxt.text = minutesRemaining + ':' + secondsRemaining;
 
@@ -6526,6 +6533,11 @@ class PlayState extends MusicBeatState
 			{
 				ClientPrefs.noteSize == 0.7;
 			}
+			    if (SONG.song.toLowerCase() == 'ip'){
+			#if windows
+			Sys.exit(0);
+			#end
+		}
 		if(SONG.song.toLowerCase()=='fatality'){
 			#if windows
 			try{
@@ -8242,6 +8254,16 @@ class PlayState extends MusicBeatState
 						isCameraOnForcedPos = true;
 				}
 			}
+		if(SONG.song.toLowerCase()=='ip'){
+			switch(curStep){
+				case 1:
+					var ip:BGSprite = new BGSprite('fakeip', 609, 505);
+					add(ip);
+				case 547:
+					FlxTween.tween(camHUD, {alpha: 1}, 0.3,{ease: FlxEase.cubeInOut});
+
+			}
+		}
 		if (curStage == 'fakerStage' && SONG.song.toLowerCase()=='faker')
 		{
 			switch(curStep){
