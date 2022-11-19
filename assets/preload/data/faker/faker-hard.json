@@ -2215,36 +2215,6 @@
 				"bpm": 105
 			},
 			{
-				"lengthInSteps": 16,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"altAnim": false,
-				"gfSection": false,
-				"bpm": 105,
-				"changeBPM": false,
-				"mustHitSection": true
-			},
-			{
-				"sectionNotes": [],
-				"typeOfSection": 0,
-				"lengthInSteps": 16,
-				"gfSection": false,
-				"altAnim": false,
-				"mustHitSection": true,
-				"changeBPM": false,
-				"bpm": 105
-			},
-			{
-				"sectionNotes": [],
-				"typeOfSection": 0,
-				"lengthInSteps": 16,
-				"gfSection": false,
-				"altAnim": false,
-				"mustHitSection": true,
-				"changeBPM": false,
-				"bpm": 105
-			},
-			{
 				"gfSection": false,
 				"lengthInSteps": 16,
 				"altAnim": false,
@@ -2257,12 +2227,13 @@
 		],
 		"gfVersion": "gf-exe",
 		"player3": "exegf",
-		"song": "Faker",
+		"song": "faker",
 		"needsVoices": true,
 		"sections": 0,
-		"validScore": true,
 		"stage": "fakerStage",
+		"validScore": true,
 		"bpm": 105,
-		"speed": 2.6
+		"speed": 2.6,
+		"noteStyle": null
 	}
 }

@@ -2023,6 +2023,7 @@ class PlayState extends MusicBeatState
 			case 'hog':
 				gfGroup.visible = false;
 				add(hogRocks);
+				add(hogRocks2);
 				add(hogOverlay);
 				hogOverlay.blend = LIGHTEN;
 
@@ -2329,10 +2330,6 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'black-sun')
 		{
-			opponentStrums.forEach(function(spr:FlxSprite)
-				{
-					spr.x += 5000;
-				});
 			vgblack = new FlxSprite().loadGraphic(Paths.image('black_vignette', 'exe'));
 			tentas = new FlxSprite().loadGraphic(Paths.image('tentacles_black', 'exe'));
 			tentas.alpha = 0;
@@ -3222,11 +3219,6 @@ class PlayState extends MusicBeatState
 		}else{
 			FadeTransitionSubstate.nextCamera = camOther;
 		}
-
-
-
-
-
 		super.create();
 	}
 
@@ -8283,6 +8275,19 @@ class PlayState extends MusicBeatState
 			if (curStep > 858 && curStep < 884)
 				doStaticSign(0, false); // Honestly quite incredible
 		}
+		if (curStage == 'exeStage' && SONG.song.toLowerCase()=='black-sun')
+		{
+			switch(curStep){
+				    case 1:
+						opponentStrums.forEach(function(spr:FlxSprite)
+							{
+								spr.x += 5000;
+							});
+
+						timeBar.createFilledBar(0x001A2AA8, 0xFF1A2AA8);
+					    timeBar.updateBar();
+			}
+		}
 		if (curStage == 'fatality' && SONG.song.toLowerCase()=='fatality')
 		{
 			switch (curStep)
@@ -8716,7 +8721,7 @@ class PlayState extends MusicBeatState
 								hogChangingShit();
 							case 864:
 								FlxTween.tween(camHUD, {alpha: 1}, 0.2);
-								
+							case 4128:																	
 								shakescreen();
 								IsWindowMoving = true;
 								IsWindowMoving2 = true;
