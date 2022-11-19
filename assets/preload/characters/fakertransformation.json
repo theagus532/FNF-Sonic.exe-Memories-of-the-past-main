@@ -60,7 +60,7 @@
 	"image": "characters/Faker_Assets/Faker_Transformation_Assets",
 	"position": [
 		0,
-		0
+		-30
 	],
 	"healthicon": "faker",
 	"flip_x": false,
