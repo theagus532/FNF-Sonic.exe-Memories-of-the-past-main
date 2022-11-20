@@ -324,13 +324,12 @@ class TitleState extends MusicBeatState
 				{
 					remove(titleText); // incase someone turned flashing off
 					FlxG.sound.music.stop();
-					MusicBeatState.switchState(new MainMenuState());
-					/*var video = new MP4Handler();
+					var video = new MP4Handler();
 					video.finishCallback = function()
 					{
 						MusicBeatState.switchState(new MainMenuState());
 					}
-					video.playVideo(Paths.video('bothCreditsAndIntro'));*/
+					video.playVideo(Paths.video('bothCreditsAndIntro'));
 				});
 
 		/*		new FlxTimer().start(1, function(tmr:FlxTimer)

@@ -91,6 +91,9 @@ class PlayState extends MusicBeatState
 	// THEN GOTO MODCHARTSHIT.HX TO DEFINE MODIFIERS ETC
 	// IN THE SETUPMODCHART FUNCTION
 	public var useModchart:Bool = true;
+	
+	var monitorCounter:Int = 0;
+	var monitorAnims:Array<String> = ["fatal", "nmi", "needle", "starved", "idle"];
 
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
@@ -387,7 +390,6 @@ class PlayState extends MusicBeatState
 	var emeraldbeam:FlxSprite;
 	var emeraldbeamyellow:FlxSprite;
 	var pebles:FlxSprite;
-	var warning:FlxSprite;
 	var dodgething:FlxSprite;
 	// exe shit
 	var vgblack:FlxSprite;
@@ -468,6 +470,8 @@ class PlayState extends MusicBeatState
 	var hogTrees:BGSprite;
 	var hogRocks:BGSprite;
 	var hogOverlay:BGSprite;
+
+	var warning:FlxSprite;
     //scorched shit
 	var hogBg2:BGSprite;
 	var hogMotain2:BGSprite;
@@ -1869,13 +1873,17 @@ class PlayState extends MusicBeatState
 				hogLoops2.alpha = 0;
                 add(hogLoops2);
 
-                hogMonitor = new FlxSprite(hogLoops2.x + 500, hogLoops2.y + 300);
-                hogMonitor.frames = Paths.getSparrowAtlas('hog/Monitor');
-                hogMonitor.animation.addByPrefix('loops', 'fatalerror', 12);
-                hogMonitor.animation.play('loops');
-                hogMonitor.scrollFactor.set(1, 0.9);
-				hogMonitor.alpha = 0;
-                add(hogMonitor);
+				hogMonitor = new FlxSprite(1100, 265);
+				hogMonitor.frames = Paths.getSparrowAtlas('hog/Monitor', 'exe');
+				hogMonitor.animation.addByPrefix('idle', 'Monitor', 12, false);
+				hogMonitor.animation.addByPrefix('fatal', 'Fatalerror', 12, false);
+				hogMonitor.animation.addByPrefix('nmi', 'NMI', 12, false);
+				hogMonitor.animation.addByPrefix('needle', 'Needlemouse', 12, false);
+				hogMonitor.animation.addByPrefix('starved', 'Storved', 12, false);
+				hogMonitor.animation.play('idle');
+				hogMonitor.scrollFactor.set(1, 0.9);
+				hogMonitor.visible = false;
+				add(hogMonitor);
 
 				hogTrees2 = new BGSprite('hog/blast/Plants', -600, -120, 1, 0.9);
 				hogTrees2.alpha = 0;
@@ -2165,6 +2173,10 @@ class PlayState extends MusicBeatState
 				gf.y += 575;
 				dad.x -= 90;
 				dad.y += 70;
+			case 'curse':
+				gf.x -= 50;
+				gf.y -= 100;
+				boyfriend.x += 70;
 			case 'starved-pixel':
 				add(stardustFloorPixel);
 				boyfriend.x += 250;
@@ -2481,6 +2493,17 @@ class PlayState extends MusicBeatState
 
 				add(dodgething);
 			}
+			if (SONG.song.toLowerCase() == 'hedge')
+			{
+				warning = new FlxSprite().loadGraphic(Paths.image('hog/Warning', 'exe'));
+				warning.scale.x = 0.5;
+				warning.scale.y = 0.5;
+				warning.screenCenter();
+
+				warning.visible = false;
+
+				add(warning);
+			}
 
 		if(sonicHUDStyles.exists(SONG.song.toLowerCase()))hudStyle = sonicHUDStyles.get(SONG.song.toLowerCase());
 		var hudFolder = hudStyle;
@@ -2693,6 +2716,10 @@ class PlayState extends MusicBeatState
 			//warning.cameras = [camHUD];
 			dodgething.cameras = [camHUD];
 		}
+		if (SONG.song.toLowerCase() == 'hedge')
+		{
+			warning.cameras = [camHUD];
+		}
 
 		sonicHUD.cameras = [camHUD];
 		startCircle.cameras = [camOther];
@@ -2744,6 +2771,13 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
+				case 'black-sun':
+					opponentStrums.forEach(function(spr:FlxSprite)
+					{
+						spr.x += 5000;
+					});
+						trace("mhm");
+					startCountdown();
 				case 'forestall-desire':
 					playerStrums.forEach(function(spr:FlxSprite)
 						{
@@ -2763,7 +2797,7 @@ class PlayState extends MusicBeatState
 					camHUD.alpha = 0;
 					startCountdown();
 
-				case 'too-slow' | 'you-cant-run' | 'triple-trouble' | 'endless' | 'cycles' | 'faker' |  'prey' | 'fight-or-flight'| 'b4cksl4sh' | 'round-a-bout':
+				case 'too-slow' | 'you-cant-run' | 'triple-trouble' | 'endless' | 'cycles' | 'faker' |  'prey' | 'fight-or-flight'| 'b4cksl4sh' | 'round-a-bout' | 'hedge'  | 'manual-blast':
 
 					if (daSong == 'too-slow' || daSong == 'you-cant-run' || daSong == 'cycles')
 						{
@@ -4481,6 +4515,10 @@ class PlayState extends MusicBeatState
 			switch (char.curCharacter)
 			{
 				case "scorched":
+					FlxG.camera.zoom = FlxMath.lerp(0.5, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+					camFollow.x += 20;
+					camFollow.y += 70;
+				case "scorchedglitch":
 					FlxG.camera.zoom = FlxMath.lerp(0.5, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 					camFollow.x += 20;
 					camFollow.y += 70;
@@ -8279,11 +8317,6 @@ class PlayState extends MusicBeatState
 		{
 			switch(curStep){
 				    case 1:
-						opponentStrums.forEach(function(spr:FlxSprite)
-							{
-								spr.x += 5000;
-							});
-
 						timeBar.createFilledBar(0x001A2AA8, 0xFF1A2AA8);
 					    timeBar.updateBar();
 			}
@@ -8608,6 +8641,7 @@ class PlayState extends MusicBeatState
 								timeBar.createFilledBar(0x002C27B5, 0xFF2C27B5);
 								timeBar.updateBar();
 							case 1264:
+								warning.visible = true;
 								var warning:FlxSprite = new FlxSprite(boyfriend.x - 25, boyfriend.y - 30);
 								warning.frames = Paths.getSparrowAtlas("hog/TargetLock");
 								warning.animation.addByPrefix('warn', 'TargetLock', 24, false);
@@ -8639,6 +8673,8 @@ class PlayState extends MusicBeatState
 									if (dad.animation.curAnim.curFrame == 38 && !dodging) health = 0;
 									boyfriend.animation.finishCallback=null;
 								});
+							case 1284:
+								warning.visible = false;
 						}
 
 				}
@@ -8911,7 +8947,7 @@ class PlayState extends MusicBeatState
 					}
 				}	
 				
-			if (SONG.song.toLowerCase() == 'malediction')
+			if (SONG.song.toLowerCase() == 'Malediction')
 			{
 				switch (curStep)
 					{

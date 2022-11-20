@@ -177,7 +177,7 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 		scoreText.x -= 20;
 		add(scoreText);
 
-		if (charUnlocked.contains(charArray[0])) charText = new FlxText(30 , 10, FlxG.width, "Majin");
+		if (charUnlocked.contains(charArray[0])) charText = new FlxText(30 , 10, FlxG.width, "majin");
 		else charText = new FlxText(30 , 10, FlxG.width, "???");
 		charText.setFormat("Sonic CD Menu Font Regular", 36, FlxColor.WHITE, CENTER);
 		charText.y -= 10;
@@ -296,6 +296,12 @@ class FreeplayState extends MusicBeatState // REWRITE FREEPLAY!?!?!? HELL YEA!!!
 
 				PlayStateChangeables.nocheese = false;
 				switch(songArray[curSongSelected]){
+					case 'too-fest':
+						transOut = MLGTransitionSubstate;
+						LoadingState.loadAndSwitchState(new PlayState());
+					case 'perdition':
+						transOut = PantagrameTransitionSubstate;
+						LoadingState.loadAndSwitchState(new PlayState());
 					case 'sunshine':
 						transOut = OvalTransitionSubstate;
 						LoadingState.loadAndSwitchState(new PlayState());
