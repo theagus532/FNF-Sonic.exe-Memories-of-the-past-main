@@ -68,6 +68,8 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
+import GlitchShader.GlitchShaderA;
+import GlitchShader.GlitchShaderB;
 import flash.system.System;
 using StringTools;
 
@@ -92,9 +94,6 @@ class PlayState extends MusicBeatState
 	// IN THE SETUPMODCHART FUNCTION
 	public var useModchart:Bool = true;
 	
-	var monitorCounter:Int = 0;
-	var monitorAnims:Array<String> = ["fatal", "nmi", "needle", "starved", "idle"];
-
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
@@ -114,6 +113,7 @@ class PlayState extends MusicBeatState
 	];
 
 	#if (haxe >= "4.0.0")
+	public var piss:Array<FlxTween> = [];
 	public var modchartTweens:Map<String, FlxTween> = new Map();
 	public var modchartSprites:Map<String, ModchartSprite> = new Map();
 	public var modchartTimers:Map<String, FlxTimer> = new Map();
@@ -1665,15 +1665,14 @@ class PlayState extends MusicBeatState
 				add(curseFloor);
 
 				curseStatic = new FlxSprite(0, 0);
-				curseStatic.frames = Paths.getSparrowAtlas('curse/staticCurse', 'exe');
+				curseStatic.frames = Paths.getSparrowAtlas('curse/staticCurse');
 				curseStatic.animation.addByPrefix('stat', "menuSTATICNEW instance 1", 24, true);
 				curseStatic.animation.play('stat');
-				curseStatic.alpha = 0.25;
+				curseStatic.alpha = 0.5;
 				curseStatic.screenCenter();
-				curseStatic.scale.x = 4;
-				curseStatic.scale.y = 4;
+				curseStatic.scale.x = 2;
+				curseStatic.scale.y = 2;
 				curseStatic.visible = false;
-				//curseStatic.blend = LIGHTEN;
 				add(curseStatic);
 			case 'xterion':
 				defaultCamZoom = 0.85;
@@ -1846,32 +1845,31 @@ class PlayState extends MusicBeatState
 
 				//SCORCHED SHIT YAHOOOO.
 
-				hogBg2 = new BGSprite('hog/blast/Sunset', 0, 0, 1.1, 0.9);
-                hogBg2.scale.x = 2.0;
-                hogBg2.scale.y = 2.0;
+				hogBg2 = new BGSprite('hog/blast/Sunset', -200, 0, 1.1, 0.9);
+				hogBg2.scale.x = 1.75;
+				hogBg2.scale.y = 1.75;
 				hogBg2.alpha = 0;
-                add(hogBg2);
+				add(hogBg2);
 
 				hogMotain2 = new BGSprite('hog/blast/Mountains', 0, 0, 1.1, 0.9);
-                hogMotain2.scale.x = 1.5;
-                hogMotain2.scale.y = 1.5;
+				hogMotain2.scale.x = 1.5;
+				hogMotain2.scale.y = 1.5;
 				hogMotain2.alpha = 0;
-                add(hogMotain2);
+				add(hogMotain2);
 
-				hogWaterFalls2 = new FlxSprite(-1100, 200);
-                hogWaterFalls2.frames = Paths.getSparrowAtlas('hog/blast/Waterfalls');
-                hogWaterFalls2.animation.addByPrefix('water', 'British', 12);
-                hogWaterFalls2.animation.play('water');
-                hogWaterFalls2.scrollFactor.set(1, 1);
+				hogWaterFalls2 = new FlxSprite(-1000, 200);
+				hogWaterFalls2.frames = Paths.getSparrowAtlas('hog/blast/Waterfalls', 'exe');
+				hogWaterFalls2.animation.addByPrefix('water', 'British instance 1', 12);
+				hogWaterFalls2.animation.play('water');
+				hogWaterFalls2.scale.x = 1.1;
+				hogWaterFalls2.scale.y = 1.1;
+				hogWaterFalls2.scrollFactor.set(1, 1);
 				hogWaterFalls2.alpha = 0;
-                add(hogWaterFalls2);
+				add(hogWaterFalls2);
 
-				hogLoops2 = new FlxSprite(-300, 150).loadGraphic(Paths.image('hog/blast/Hills'));
-				hogLoops2.scrollFactor.set(1, 0.9);
-				hogLoops2.scale.x = 1.1;
-				hogLoops2.scale.y = 1.1;
+				hogLoops2 = new BGSprite('hog/blast/Hills', -100, 230, 1, 0.9);
 				hogLoops2.alpha = 0;
-                add(hogLoops2);
+				add(hogLoops2);
 
 				hogMonitor = new FlxSprite(1100, 265);
 				hogMonitor.frames = Paths.getSparrowAtlas('hog/Monitor', 'exe');
@@ -1882,22 +1880,22 @@ class PlayState extends MusicBeatState
 				hogMonitor.animation.addByPrefix('starved', 'Storved', 12, false);
 				hogMonitor.animation.play('idle');
 				hogMonitor.scrollFactor.set(1, 0.9);
-				hogMonitor.visible = false;
+				hogMonitor.alpha = 0;
 				add(hogMonitor);
-
-				hogTrees2 = new BGSprite('hog/blast/Plants', -600, -120, 1, 0.9);
+				
+				hogTrees2 = new BGSprite('hog/blast/Plants', -400, -50, 1, 0.9);
 				hogTrees2.alpha = 0;
-                add(hogTrees2);
+				add(hogTrees2);
 
-				hogFloor2 = new BGSprite('hog/blast/Floor', -600, 750, 1.1, 0.9);
-                hogFloor2.scale.x = 1.25;
-                hogFloor2.scale.y = 1.25;
+				hogFloor2 = new BGSprite('hog/blast/Floor', -400, 780, 1, 0.9);
+				hogFloor2.scale.x = 1.25;
+				hogFloor2.scale.y = 1.25;
 				hogFloor2.alpha = 0;
-                add(hogFloor2);
+				add(hogFloor2);
 
 				hogRocks2 = new BGSprite('hog/blast/Rocks', -500, 600, 1.1, 0.9);
-                hogRocks2.scale.x = 1.25;
-                hogRocks2.scale.y = 1.25;
+				hogRocks2.scale.x = 1.25;
+				hogRocks2.scale.y = 1.25;
 				hogRocks2.alpha = 0;
 
 				blackFuck4 = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
@@ -2496,8 +2494,8 @@ class PlayState extends MusicBeatState
 			if (SONG.song.toLowerCase() == 'hedge')
 			{
 				warning = new FlxSprite().loadGraphic(Paths.image('hog/Warning', 'exe'));
-				warning.scale.x = 0.5;
-				warning.scale.y = 0.5;
+				warning.scale.x = 0.3;
+				warning.scale.y = 0.3;
 				warning.screenCenter();
 
 				warning.visible = false;
@@ -4521,7 +4519,7 @@ class PlayState extends MusicBeatState
 				case "scorchedglitch":
 					FlxG.camera.zoom = FlxMath.lerp(0.5, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 					camFollow.x += 20;
-					camFollow.y += 70;
+					camFollow.y += 70;	
 				case "starved":
 					FlxG.camera.zoom = FlxMath.lerp(1.35, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 					camFollow.x += 20;
@@ -6667,6 +6665,27 @@ class PlayState extends MusicBeatState
 							LoadingState.loadAndSwitchState(new PlayState());
 						});
 					}
+					if (curSong.toLowerCase() == 'too-slow' && storyDifficulty == 2)
+						{
+							FlxG.save.data.storyProgress = 1;
+							var video:MP4Handler = new MP4Handler();
+							video.playVideo(Paths.video('tooslowcutscene2'));
+							video.finishCallback = function()
+							{
+								LoadingState.loadAndSwitchState(new PlayState());
+							}
+						}
+					else if (curSong == 'you-cant-run')
+						{
+							FlxG.save.data.storyProgress = 2;
+							FlxG.save.data.soundTestUnlocked = true;
+							var video:MP4Handler = new MP4Handler();
+							video.playVideo(Paths.video('youcantruncutscene2'));
+							video.finishCallback = function()
+							{
+								LoadingState.loadAndSwitchState(new PlayState());
+							}
+						}
 					else
 					{
 						cancelFadeTween();
@@ -7638,6 +7657,26 @@ class PlayState extends MusicBeatState
 		}
 		luaArray = [];
 		super.destroy();
+	}
+
+	var glitchShaders:Array<GlitchShaderA> = [];
+
+	function glitchKill(spr:FlxSprite,dontKill:Bool=false){
+		var shader = new GlitchShaderA();
+		shader.iResolution.value = [spr.width, spr.height];
+		piss.push(FlxTween.tween(shader, {amount: 1.25}, 2, {
+			ease: FlxEase.cubeInOut,
+			onComplete: function(tw: FlxTween){
+				glitchShaders.remove(shader);
+				spr.visible=false;
+				if(!dontKill){
+					remove(spr);
+					spr.destroy();
+				}
+			}
+		}));
+		glitchShaders.push(shader);
+		spr.shader = shader;
 	}
 
 	public function cancelFadeTween()
@@ -8757,14 +8796,35 @@ class PlayState extends MusicBeatState
 								hogChangingShit();
 							case 864:
 								FlxTween.tween(camHUD, {alpha: 1}, 0.2);
-							case 4128:																	
+							case 4128:		
 								shakescreen();
 								IsWindowMoving = true;
 								IsWindowMoving2 = true;
 								Yamount += 3;
 								Xamount += 3;
-								camGame.shake(0.02, 2);
-								camHUD.shake(0.02, 2);
+								camGame.shake(0.04, 2);
+								camHUD.shake(0.04, 2);
+							case 4672:
+								glitchKill(hogMotain2);
+							case 4704:
+								glitchKill(hogWaterFalls2);
+							case 4736:
+								glitchKill(hogLoops2);
+								glitchKill(hogMonitor);
+							case 4920:
+								glitchKill(hogBg2);
+							case 4944:
+								glitchKill(boyfriend, true);
+							case 4960:
+								glitchKill(hogTrees2);
+							case 4978:
+								glitchKill(hogRocks2);
+							case 4992:
+								glitchKill(hogFloor2);
+							case 5000:
+								glitchKill(dad, true);
+								FlxTween.tween(camGame, {alpha: 0});
+								FlxTween.tween(camHUD, {alpha: 0});
 								}
 					}		
 				
@@ -9241,6 +9301,38 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 		boyfriendGroup.add(boyfriend);
 	}
+
+	var newIcon:String;
+
+	function iconglitchlmao()
+	{
+		switch(FlxG.random.int(1,9)){
+			case 1:
+				newIcon = "sl4sh-pixel";
+			case 2:
+				newIcon = "sonicexe";
+			case 3:
+				newIcon = "normal";
+			case 4:
+				newIcon = "EXE";
+			case 5:
+				newIcon = "fatal-sonic";
+			case 6:
+				newIcon = "soylent";
+			case 7:
+				newIcon = "needlemouse";
+			case 8:
+				newIcon = "satanos";
+			case 9:
+				newIcon = "starved";
+			//case 10:
+			//	newIcon = "scorched-glitch";
+		}
+		if(SONG.song.toLowerCase() == 'manual-blast'){
+			trace(newIcon);
+			iconP2.changeIcon(newIcon);
+		}
+	}	
 
 	var lastBeatHit:Int = -1;
 	var fucklesBeats:Bool = true;

@@ -1,14 +1,13 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				62,
 				-263
 			],
-			"anim": "laugh",
+			"loop": false,
 			"fps": 24,
-			"name": "Beast_LAUGH",
+			"anim": "laugh",
 			"indices": [
 				0,
 				1,
@@ -26,17 +25,14 @@
 				13,
 				14,
 				15
-			]
+			],
+			"name": "Beast_LAUGH"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				84,
 				-50
 			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "Tails IDLE",
 			"indices": [
 				0,
 				1,
@@ -52,101 +48,17 @@
 				11,
 				12,
 				13
-			]
-		},
-		{
-			"loop": false,
-			"offsets": [
-				108,
-				-5
 			],
-			"anim": "singUP",
 			"fps": 24,
-			"name": "Tails UP",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15
-			]
+			"anim": "idle",
+			"loop": false,
+			"name": "Tails Idle"
 		},
 		{
-			"loop": false,
-			"offsets": [
-				148,
-				-67
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "Tails RIGHT",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15
-			]
-		},
-		{
-			"loop": false,
-			"offsets": [
-				167,
-				-108
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Tails DOWN",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14,
-				15
-			]
-		},
-		{
-			"loop": false,
 			"offsets": [
 				224,
 				-64
 			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Tails LEFT",
 			"indices": [
 				0,
 				1,
@@ -164,7 +76,95 @@
 				13,
 				14,
 				15
-			]
+			],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Tails Left"
+		},
+		{
+			"offsets": [
+				148,
+				-67
+			],
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Tails Right"
+		},
+		{
+			"offsets": [
+				108,
+				-5
+			],
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Tails Up"
+		},
+		{
+			"offsets": [
+				167,
+				-108
+			],
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15
+			],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Tails Down"
 		}
 	],
 	"no_antialiasing": false,
