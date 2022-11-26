@@ -88,11 +88,11 @@ typedef BasicSpeedChange = {
 
 class PlayState extends MusicBeatState
 {
-	var modchartedSongs:Array<String> = ['perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
+	var modchartedSongs:Array<String> = ['Perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
 
 	// THEN GOTO MODCHARTSHIT.HX TO DEFINE MODIFIERS ETC
 	// IN THE SETUPMODCHART FUNCTION
-	public var useModchart:Bool = true;
+	public var useModchart:Bool = false;
 	
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;

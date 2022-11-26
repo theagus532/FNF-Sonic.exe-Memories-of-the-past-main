@@ -315,17 +315,7 @@ class StoryMenuState extends MusicBeatState
 			if (oneclickpls)
 			{
 				oneclickpls = false;
-				//var curDifficulty = '';
-
-				FlxG.sound.play(Paths.sound('confirmMenu'));
-				PlayState.isStoryMode = true;
-				PlayState.storyPlaylist = ['IP', 'endless', 'triple-trouble'];
-				PlayState.SONG = Song.loadFromJson('ip', 'ip');
-				PlayState.storyDifficulty = 2;
-				new FlxTimer().start(1.25, function(tmr:FlxTimer)
-				{
-					LoadingState.loadAndSwitchState(new PlayState());
-				});
+				var curDifficulty = '';
 
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
@@ -336,33 +326,33 @@ class StoryMenuState extends MusicBeatState
 
 						new FlxTimer().start(1, function(tmr:FlxTimer)
 							{
-								LoadingState.loadAndSwitchState(new PlayState(), true); //save this code for the cutsceneless build of the game
+								// LoadingState.loadAndSwitchState(new PlayState(), true); //save this code for the cutsceneless build of the game
 								//var video:MP4Handler = new MP4Handler();
-								//video.playVideo(Paths.video('tooslowcutscene1'));
-								//video.finishCallback = function()
+							//	video.playVideo(Paths.video('tooslowcutscene1'));
+							//	video.finishCallback = function()
 								//{
-								//	LoadingState.loadAndSwitchState(new PlayState());
+									LoadingState.loadAndSwitchState(new PlayState());
 								//}
 							});
 					}
 
 				else if (FlxG.save.data.storyProgress == 0)
 				{
-					//PlayState.storyPlaylist = ['too-slow', 'you-cant-run', 'triple-trouble'];
-					//PlayState.isStoryMode = true;
+					PlayState.storyPlaylist = ['too slow', 'you cant run', 'triple trouble'];
+					PlayState.isStoryMode = true;
 
 
-					//curdiff = 3;
-					//PlayState.storyDifficulty = curdiff;
+					curdiff = 3;
+					PlayState.storyDifficulty = curdiff;
 
-					//PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + curDifficulty, PlayState.storyPlaylist[0].toLowerCase());
-					//PlayState.storyWeek = 1;
-					//PlayState.campaignScore = 0;
+					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + curDifficulty, PlayState.storyPlaylist[0].toLowerCase());
+					PlayState.storyWeek = 1;
+					PlayState.campaignScore = 0;
 				}
 				else
 				{
 
-						//curDifficulty = '-hard';
+						curDifficulty = '-hard';
 
 					PlayState.SONG = Song.loadFromJson(songArray[real].toLowerCase() + curDifficulty, songArray[real].toLowerCase());
 					PlayState.isStoryMode = false;
@@ -370,9 +360,9 @@ class StoryMenuState extends MusicBeatState
 				}
 				if (songArray[real] == 'you cant run')
 				{
-					PlayState.storyPlaylist = ['you-cant-run', 'triple-trouble'];
+					PlayState.storyPlaylist = ['you cant run', 'triple trouble'];
 					PlayState.isStoryMode = true;
-					//curDifficulty = '-hard';
+					curDifficulty = '-hard';
 
 					PlayState.storyDifficulty = FlxG.save.data.storyDiff = curdiff;
 
@@ -385,12 +375,12 @@ class StoryMenuState extends MusicBeatState
 					new FlxTimer().start(1, function(tmr:FlxTimer)
 						{
 							// LoadingState.loadAndSwitchState(new PlayState(), true); //save this code for the cutsceneless build of the game
-							var video:MP4Handler = new MP4Handler();
-							video.playVideo(Paths.video('tooslowcutscene1'));
-							video.finishCallback = function()
-							{
+							//var video:MP4Handler = new MP4Handler();
+						//	video.playVideo(Paths.video('tooslowcutscene1'));
+						//	video.finishCallback = function()
+							//{
 								LoadingState.loadAndSwitchState(new PlayState());
-							}
+							//}
 						});
 				}
 			}
