@@ -88,7 +88,7 @@ typedef BasicSpeedChange = {
 
 class PlayState extends MusicBeatState
 {
-	var modchartedSongs:Array<String> = ['Perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
+	var modchartedSongs:Array<String> = ['perdition', 'hedge']; // PUT THE SONG NAME HERE IF YOU WANT TO USE THE ANDROMEDA MODIFIER SYSTEM!!
 
 	// THEN GOTO MODCHARTSHIT.HX TO DEFINE MODIFIERS ETC
 	// IN THE SETUPMODCHART FUNCTION
@@ -8661,6 +8661,16 @@ class PlayState extends MusicBeatState
 
 					}
 			}
+
+			if (SONG.song.toLowerCase() == 'perdition')
+				{
+					switch (curStep)
+					    {
+							case 1:
+								timeBar.createFilledBar(0x006C6CD8, 0xFF6C6CD8);
+								timeBar.updateBar();
+						}
+				}
 
             if (SONG.song.toLowerCase() == 'forestall desire')
 				{
