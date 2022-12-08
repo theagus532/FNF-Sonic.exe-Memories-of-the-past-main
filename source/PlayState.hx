@@ -2026,6 +2026,16 @@ class PlayState extends MusicBeatState
 			case 'exeStage':
 				gfGroup.scrollFactor.set(1.24, 1);
 
+			case 'needle':
+				var vcr:VHSShader;
+				vcr = new VHSShader();
+
+				curShader = new ShaderFilter(vcr);
+
+				camGame.setFilters([curShader]);
+				camHUD.setFilters([curShader]);
+				camOther.setFilters([curShader]);
+
 			case 'hog':
 				gfGroup.visible = false;
 				add(hogRocks);
@@ -2466,6 +2476,31 @@ class PlayState extends MusicBeatState
 			add(fearBar);
 			add(fearUi);
 		}
+		if (dad.curCharacter == 'satanos')
+		{
+			fearUi = new FlxSprite().loadGraphic(Paths.image('fearbar2'));
+			fearUi.scrollFactor.set();
+			fearUi.screenCenter();
+			fearUi.x += 580;
+			fearUi.y -= 50;
+
+			fearUiBg = new FlxSprite(fearUi.x, fearUi.y).loadGraphic(Paths.image('fearbarBG2'));
+			fearUiBg.scrollFactor.set();
+			fearUiBg.screenCenter();
+			fearUiBg.x += 580;
+			fearUiBg.y -= 50;
+			add(fearUiBg);
+
+			fearBar = new FlxBar(fearUi.x + 30, fearUi.y + 5, BOTTOM_TO_TOP, 21, 275, this, 'fearNo', 0, 100);
+			fearBar.scrollFactor.set();
+			fearBar.visible = true;
+			fearBar.numDivisions = 1000;
+			fearBar.createFilledBar(0x006C6CD8, 0xFF6C6CD8);
+			trace('bar added.');
+
+			add(fearBar);
+			add(fearUi);
+		}
 
 		if (SONG.song.toLowerCase() == 'chaos')
 			{
@@ -2846,16 +2881,6 @@ class PlayState extends MusicBeatState
 						});
 					});
 
-				case  'my-horizon' | 'our-horizon':
-					add(blackFuck);
-					startCircle.loadGraphic(Paths.image('StartScreens/' + daSong + '_title_card', 'exe'));
-					startCircle.frames = Paths.getSparrowAtlas('StartScreens/' + daSong + '_title_card', 'exe');
-					startCircle.animation.addByPrefix('idle', daSong + '_title', 24, false);
-					//startCircle.setGraphicSize(Std.int(startCircle.width * 0.6));
-					startCircle.alpha = 0;
-					startCircle.screenCenter();
-					add(startCircle);
-
 				case 'found-you':
 					snapCamFollowToPos(700, 400);
 					new FlxTimer().start(0, function(tmr:FlxTimer)
@@ -2978,7 +3003,7 @@ class PlayState extends MusicBeatState
 
 								var oldbfx = boyfriend.x;
 								var oldbfy = boyfriend.y;
-								boyfriend = new Boyfriend(oldbfx, oldbfy, 'bf');
+								boyfriend = new Boyfriend(oldbfx, oldbfy, 'fleet-bf');
 							});
 
 							new FlxTimer().start(6, function(lol:FlxTimer)
@@ -4660,6 +4685,31 @@ class PlayState extends MusicBeatState
 				health = 0.01;
 			}
 		}
+		if (dad.curCharacter == 'satanos')
+		{
+			isFear = true;
+			fearBar.visible = true;
+			fearBar.filledCallback = function()
+			{
+				health = 0;
+			}
+			// this is such a shitcan method i really should come up with something better tbf
+			if (fearNo >= 50 && fearNo < 59)
+				health -= 0.1 * elapsed;
+			else if (fearNo >= 60 && fearNo < 69)
+				health -= 0.13 * elapsed;
+			else if (fearNo >= 70 && fearNo < 79)
+				health -= 0.17 * elapsed;
+			else if (fearNo >= 80 && fearNo < 89)
+				health -= 0.20 * elapsed;
+			else if (fearNo >= 90 && fearNo < 99)
+				health -= 0.35 * elapsed;
+
+			if (health <= 0.01)
+			{
+				health = 0.01;
+			}
+		}
 
 		if (dad.curCharacter == 'hog' && dad.animation.curAnim.curFrame == 38 && !dodging)
 		{
@@ -5358,6 +5408,11 @@ class PlayState extends MusicBeatState
 						daNote.hitByOpponent = true;
 
 						if (dad.curCharacter == 'starved' && daNote.hitByOpponent)
+						{
+							fearNo += 0.15;
+							// trace(fearNo);
+						}
+						if (dad.curCharacter == 'satanos' && daNote.hitByOpponent)
 						{
 							fearNo += 0.15;
 							// trace(fearNo);
@@ -7931,6 +7986,19 @@ class PlayState extends MusicBeatState
 					});
 			}
 		}
+		if (SONG.song.toLowerCase() == 'her-world')
+			{
+				switch (curStep)
+					{
+						case 1:
+							timeBar.createFilledBar(0x00FF5E00, 0xFFFF5E00);
+							timeBar.updateBar();
+						case 397:
+							FlxTween.tween(camHUD, {alpha: 0}, 1);
+							FlxTween.tween(blackFuck4, {alpha: 1}, 1);
+							FlxTween.tween(wireVignette, {alpha: 1}, 24);
+					}
+			}
 		if (SONG.song.toLowerCase() == 'fight or flight')
 		{
 			switch (curStep)
